@@ -18,6 +18,7 @@ public class BookingService {
 	@Autowired
 	BookingRepository bookingRepository;
 	
+	//Add the Booking 
 	public long addBooking(Booking booking) {
 		Booking b1 = bookingRepository.findByUsername(booking.getUsername());
 			if(b1 == null) {
@@ -29,6 +30,8 @@ public class BookingService {
 		return booking.getBookingId();
 	}
 	
+	
+	// get the Booking Details Using the ID
 	public Booking getBookingDetailsById(int id) {
 		Booking b = null;
 		Optional<Booking> booking = bookingRepository.findById(id);
@@ -39,6 +42,7 @@ public class BookingService {
 	}
 	
 	
+	// Delete the Booking using the ID
 	public boolean deleteBoookingById(int id) {
 		Booking b = null;
 		boolean result = false;
@@ -55,14 +59,20 @@ public class BookingService {
 		
 	}
 	
+	
+	//get all the Bookings By Date
 	public List<Booking> getAllBookingsByDate(LocalDate date) {
 		return bookingRepository.findAllBookingsByDate(date);
 	}
 	
-	public List<Booking> getAllBookingsById(long id) {
-		return bookingRepository.findAllById(id);
+	
+	// get all the booking by the ID
+	public Optional<Booking> getAllBookingsById(long bookingId) {
+		return bookingRepository.findByBookingId(bookingId);
 	}
 	
+	
+	// update the booking by Date 
 	public boolean updateBookingByDate (Booking b) {
 		boolean result = false;
 		Booking b1 =null;
@@ -80,6 +90,8 @@ public class BookingService {
 		
 	}
 	
+	
+	// Find all the bookings
 	public List<Booking> findAllBookings(){
 		List<Booking> list = bookingRepository.findAll();
 		
@@ -89,6 +101,8 @@ public class BookingService {
 		return list;
 	}
 	
+	
+	// find all the bookings by Id using BusNumber
 	public List<Booking> getAllBookingsById(String s) {
 		List<Booking> booking = bookingRepository.findByBusNumber(s);
 		if(booking.isEmpty()) {
@@ -97,6 +111,8 @@ public class BookingService {
 		return booking;
 	}
 	
+	
+	// find all the bookings by Id using Source
 	public List<Booking> getAllBookingsByIdUsingSource(String source) {
 		List<Booking> booking = bookingRepository.findBySource(source);
 		if(booking.isEmpty()) {
@@ -105,6 +121,8 @@ public class BookingService {
 		return booking;
 		
 	}
+	
+	// find all the bookings by Id using Destination
 	public List<Booking> getAllBookingsByIdUsingDestination(String destination) {
 		List<Booking> booking = bookingRepository.findByDestination(destination);
 		if(booking.isEmpty()) {
