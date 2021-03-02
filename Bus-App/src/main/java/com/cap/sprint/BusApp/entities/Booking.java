@@ -13,7 +13,8 @@ import javax.persistence.Id;
 public class Booking {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	long id;
+	int id;
+	long bookingId;
 	String username;
 	String busNumber;
 	String source;
@@ -28,9 +29,10 @@ public class Booking {
 		super();
 	}
 
-	public Booking(String username, String busNumber, String source, String destination, int numberOfSeats,
+	public Booking(long bookingId,String username, String busNumber, String source, String destination, int numberOfSeats,
 			int amountPaid, LocalDate date, LocalTime journeyStartTime, LocalTime journeyEndTime) {
 		super();
+		this.bookingId = bookingId;
 		this.username = username;
 		this.busNumber = busNumber;
 		this.source = source;
@@ -42,12 +44,22 @@ public class Booking {
 		this.journeyEndTime = journeyEndTime;
 	}
 
-	public long getId() {
+	
+
+	public int getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
+	}
+
+	public long getBookingId() {
+		return bookingId;
+	}
+
+	public void setBookingId(long bookingId) {
+		this.bookingId = bookingId;
 	}
 
 	public String getUsername() {
@@ -124,11 +136,13 @@ public class Booking {
 
 	@Override
 	public String toString() {
-		return "Booking [id=" + id + ", username=" + username + ", busNumber=" + busNumber + ", source=" + source
+		return "Booking [bookingId=" + bookingId + ", username=" + username + ", busNumber=" + busNumber + ", source=" + source
 				+ ", destination=" + destination + ", numberOfSeats=" + numberOfSeats + ", amountPaid=" + amountPaid
 				+ ", date=" + date + ", journeyStartTime=" + journeyStartTime + ", journeyEndTime=" + journeyEndTime
 				+ "]";
 	}
+
+	
 	
 	
 	
