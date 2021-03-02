@@ -14,7 +14,7 @@ public class Booking {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	long id;
-	String userName;
+	String username;
 	String busNumber;
 	String source;
 	String destination;
@@ -28,10 +28,10 @@ public class Booking {
 		super();
 	}
 
-	public Booking(String userName, String busNumber, String source, String destination, int numberOfSeats,
+	public Booking(String username, String busNumber, String source, String destination, int numberOfSeats,
 			int amountPaid, LocalDate date, LocalTime journeyStartTime, LocalTime journeyEndTime) {
 		super();
-		this.userName = userName;
+		this.username = username;
 		this.busNumber = busNumber;
 		this.source = source;
 		this.destination = destination;
@@ -50,12 +50,12 @@ public class Booking {
 		this.id = id;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUserName(String username) {
+		this.username = username;
 	}
 
 	public String getBusNumber() {
@@ -124,7 +124,7 @@ public class Booking {
 
 	@Override
 	public String toString() {
-		return "Booking [id=" + id + ", userName=" + userName + ", busNumber=" + busNumber + ", source=" + source
+		return "Booking [id=" + id + ", username=" + username + ", busNumber=" + busNumber + ", source=" + source
 				+ ", destination=" + destination + ", numberOfSeats=" + numberOfSeats + ", amountPaid=" + amountPaid
 				+ ", date=" + date + ", journeyStartTime=" + journeyStartTime + ", journeyEndTime=" + journeyEndTime
 				+ "]";
