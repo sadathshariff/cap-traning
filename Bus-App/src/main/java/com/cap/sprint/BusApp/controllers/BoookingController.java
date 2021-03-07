@@ -36,6 +36,8 @@ public class BoookingController {
 		return bookingService.addBooking(booking);
 	}
 	
+	
+	
 	//get all the Booking Details using Id
 	@GetMapping("/{id}")
 	public Booking getBookingDetailsById(@PathVariable("id") int id) {
@@ -58,8 +60,8 @@ public class BoookingController {
 	//update the date Using the Id
 	@PutMapping("/update/{bookingId}")
 	@Transactional
-	public boolean updateBookingByDate (@PathVariable("bookingId") long bookingId, @RequestBody Booking b) {
-		return bookingService.updateBookingByDate(b);
+	public boolean updateBookingByDate (@PathVariable("bookingId") long bookingId) {
+		return bookingService.updateBookingDate(bookingId);
 	}
 	
 	//get all the Booking By BookingID
@@ -75,6 +77,15 @@ public class BoookingController {
 		return bookingService.findAllBookings();
 	}
 	
+	//get all the Bookings by BusRoute
+	@GetMapping("busRoute/{busroute}")
+	public List<Booking> getAllBoookingsByBusRoute(@PathVariable("routeName") String routeName) {
+		return bookingService.getAllBookingsByBusRoute(routeName);
+	}
+	
+			
+			
+	//extra methods
 	//get bookings By BusNumber
 	@GetMapping("/busNumber/{busNumber}")
 	public List<Booking> getAllBookingsById(@PathVariable("busNumber") String busNumber) {

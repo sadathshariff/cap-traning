@@ -3,10 +3,12 @@ package com.cap.sprint.BusApp.entities;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 
 @Entity
@@ -28,6 +30,14 @@ public class Booking {
 	public Booking() {
 		super();
 	}
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	BusRoute busroute;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	User user;
+	
+	
 
 	public Booking(long bookingId,String username, String busNumber, String source, String destination, int numberOfSeats,
 			int amountPaid, LocalDate date, LocalTime journeyStartTime, LocalTime journeyEndTime) {

@@ -43,7 +43,7 @@ public class BookingService {
 	
 	
 	// Delete the Booking using the ID
-	public boolean deleteBoookingById(int id) {
+	public boolean deleteBoookingById(int id) throws BookingNotFoundException {
 		Booking b = null;
 		boolean result = false;
 		Optional<Booking> booking = bookingRepository.findById(id);
@@ -73,21 +73,15 @@ public class BookingService {
 	
 	
 	// update the booking by Date 
-	public boolean updateBookingByDate (Booking b) {
+	public boolean updateBookingDate(long bookingId) {
 		boolean result = false;
-		Booking b1 =null;
-		Optional<Booking> booking = bookingRepository.findByBookingId(b.getBookingId());
-	
-		if(booking.isPresent()) {
-			//b1 = booking.get();
-			b1.setDate(b.getDate());
-			result = true;
-		} else {
-			throw new BookingNotFoundException("booking doesn't exist!!!");
+		Optional<Booking> b = bookingRepository.findByBookingId(bookingId);
+		Booking b1 = null;
+		if(b.isPresent()) {
+			b1 = b.get();
+			b1.setDate(LocalDate.now());
 		}
-		
 		return result;
-		
 	}
 	
 	
@@ -102,8 +96,19 @@ public class BookingService {
 	}
 	
 	
+	
+	
+	
+	
+	
+	//Get all the bookings by BusRoute
+	public List<Booking> getAllBookingsByBusRoute(String routeName){
+		List<Booking> booking = bookingRepository.findByBusRouteRouteName(routeName);
+		return booking;
+	}
+	
 	// find all the bookings by Id using BusNumber
-	public List<Booking> getAllBookingsById(String s) {
+	public List<Booking> getAllBookingsById(String s){
 		List<Booking> booking = bookingRepository.findByBusNumber(s);
 		if(booking.isEmpty()) {
 			throw new BookingNotFoundException("Bookings not Found!!");
@@ -113,7 +118,7 @@ public class BookingService {
 	
 	
 	// find all the bookings by Id using Source
-	public List<Booking> getAllBookingsByIdUsingSource(String source) {
+	public List<Booking> getAllBookingsByIdUsingSource(String source){
 		List<Booking> booking = bookingRepository.findBySource(source);
 		if(booking.isEmpty()) {
 			throw new BookingNotFoundException("Bookings not Found!!");
@@ -123,7 +128,7 @@ public class BookingService {
 	}
 	
 	// find all the bookings by Id using Destination
-	public List<Booking> getAllBookingsByIdUsingDestination(String destination) {
+	public List<Booking> getAllBookingsByIdUsingDestination(String destination){
 		List<Booking> booking = bookingRepository.findByDestination(destination);
 		if(booking.isEmpty()) {
 			throw new BookingNotFoundException("Bookings not Found!!");
