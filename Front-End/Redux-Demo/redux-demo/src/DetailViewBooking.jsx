@@ -23,11 +23,13 @@ export default class DetailViewBooking extends Component {
     render() {
         return(
             <div>
-                 <h2>Detail View Of Booking</h2>
-                <h4>BookingID: {this.state.bookings.bookingId}</h4>
+                 <h4>Detail View Of Booking</h4>
+                <h5>BookingID: {this.state.bookings.bookingId}</h5>
                 <table class="table table-striped table-bordered ">
                 <thead>
                     <tr>
+                        <th scope="col">Number of Seats</th>
+                        <th scope="col">Amount Paid</th>
                         <th scope="col">Date</th>
                         <th scope="col">Start Time</th>
                         <th scope="col">End Time</th>
@@ -35,6 +37,8 @@ export default class DetailViewBooking extends Component {
                     </thead>
                 <tbody>
                     <tr>
+                        <td>{this.state.booking.numberOfSeats}</td>
+                        <td>{this.state.booking.amountPaid}</td>
                         <td>{this.state.bookings.date}</td>
                         <td>{this.state.bookings.journeyStartTime}</td>
                         <td>{this.state.bookings.journeyEndTime}</td>

@@ -103,7 +103,7 @@ export const updateBookings = (id, date) =>{
 
 
 export const saveUser = (payload) => {
-    return {type:"ADD_USER",payload:{message:"Successfully added User"}}
+    return {type:"ADD_USER", payload:{message:"Successfully added User"}}
 }
 
 export const addUser = (payload) => {
@@ -116,7 +116,7 @@ export const addUser = (payload) => {
         fetch('http://localhost:8090/api/v1/users/',requestOptions)
         .then(res => {
             console.log(res)
-            if(res.status === 200){
+            if(res.status === 201){
                 console.log("Success");
                 dispatch(saveUser())
             }
@@ -156,23 +156,31 @@ export const deleteUser = (username) => {
         headers:{'Content-Type' : 'application/json'}
     };
     return dispatch => {
+        let message ="";
         console.log('Deleting User...',username)
-        fetch('http://localhost:8090/api/v1/users/delete'+ username,requestOptions)
+        fetch('http://localhost:8090/api/v1/users/delete/'+username,requestOptions)
         .then(res => {
             console.log(res);
+            if(res.status === 201){
+                message = "User deleted Sucessfully"
+            }
+            else{
+                message="failed"
+            }
+
+             
             
         })
         .then(data => {
             console.log(data);
-           
-            dispatch(removeUser({users:data}))
+            dispatch(removeUser({ users:data, message}))
             dispatch(fetchUsers())
         })
     }
 }
 
 
-const updateUserPassword = () => {
+const updateUserPassword = (payload) => {
     return {type: "UPDATE_USER", payload:{message: "Successfully updated"}}
 }
 
@@ -187,7 +195,7 @@ export const updateUser = (username, password) =>{
         fetch( 'http://localhost:8090/api/v1/users/update/'+username+'/'+password, requestOptions)
             .then(response =>{
                 console.log(response.status);
-                if(response.status === 200){
+                if(response.status === 201){
                     // this.setState({date: this.date.current.value})
                     // this.setState({message: 'Booking updated sucessfully!'})
                     dispatch(updateUserPassword())

@@ -22,20 +22,21 @@ const reducer = (state = initialState, {type,payload}) => {
             return {bookings:filteredList}
         case "FIND_BOOKINGS":
             console.log(payload);
-            return {bookings:payload}
+            return {bookings:payload};
         case "UPDATE_BOOKING" :
-            return {bookings:state.bookings}
+            return {bookings:state.bookings};
         case "ADD_USER":
-            return {message:payload.message,users:state.users};
+            return {message:payload.message, users:state.users};
         case "DELETE_USER":
-            var userfilteredList = state.users.filter((user)=>
+            var filteredList1 = state.users.filter((user) => 
             user.username !== payload.username)
-            return {users:userfilteredList}
+            console.log(filteredList1)
+            return {users:filteredList1};
         case "FIND_USERS":
             console.log(payload)
             return {users:payload};
         case  "UPDATE_USER":
-        return {users:state.users}    
+        return {message:payload.message,users:state.users}    
         default:
             return state    
     }

@@ -22,7 +22,7 @@ class AddUser extends Component {
         return (
             <div>
                  <div className="alert alert-success" role="alert">
-                    {this.state.message}
+                    {this.props.message}
                 </div>
 
                 <div className="input-group mb-3">
@@ -38,8 +38,6 @@ class AddUser extends Component {
                 </div>
                 <input type="password" ref={this.password} className="form-control" placeholder="Password" aria-label="Username"  aria-describedby="basic-addon1"  required /  >
                 </div>
-
-
                 <button type="button" className="btn btn-primary" onClick={this.addUser.bind(this)}>Add User</button> 
             </div>
         )

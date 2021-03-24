@@ -29,7 +29,7 @@ class UpdateBooking extends Component {
                 <div className="input-group-prepend">
                     <span className="input-group-text" id="basic-addon1">Booking ID</span>
                 </div>
-                <input type="number" value={this.props.match.params.id} className="form-control" placeholder="Enter BookingID" aria-label="Username" aria-describedby="basic-addon1"/>
+                <input type="number" value={this.props.match.params.id} disabled className="form-control" placeholder="Enter BookingID" aria-label="Username" aria-describedby="basic-addon1"/>
                 </div>
 
                 <div className="input-group mb-3">

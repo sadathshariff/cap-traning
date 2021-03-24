@@ -27,20 +27,20 @@ function App() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
-            <li className="nav-item ">
+            <li className="nav-item mx-3">
             <Link className="nav-item" to="/">View Bookings</Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item mx-3">
             <Link className="nav-item" to="/add">Add Booking</Link>
             </li>
             {/* <li className="nav-item">
             <Link className="nav-item" to="/update">Update Booking</Link>
             </li> */}
 
-            <li className="nav-item ">
+            <li className="nav-item mx-3 ">
             <Link className="nav-item" to="/user">View Users</Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item mx-3">
             <Link className="nav-item" to="/user/add">Add User</Link>
             </li>
 
@@ -69,8 +69,7 @@ function App() {
           <Route exact path="/user/add">
             <AddUser />
           </Route>
-          <Route  path="/user/update/" component ={UpdateUser}>
-          </Route>
+          <Route  path="/user/update/:username" component={UpdateUser}></Route>
          
 
         </Switch>
