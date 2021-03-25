@@ -71,7 +71,7 @@ class ViewUser extends Component {
                 <StyledTableCell align="center">{user.id}</StyledTableCell>
                 <StyledTableCell align="center">{user.username}</StyledTableCell>
                 <StyledTableCell align="center">{user.password}</StyledTableCell>
-                <StyledTableCell align= "center"><Link to={"/update/update/"+user.username}><Button variant="contained" color="primary">
+                <StyledTableCell align= "center"><Link to={"/user/update/"+user.username}><Button variant="contained" color="primary">
                         Update</Button></Link></StyledTableCell>
                 <StyledTableCell align="center"><Button variant="contained" color="secondary" className={classes.button}
                     startIcon={<DeleteIcon />} onClick={this.deleteUser.bind(this,user.username)}>Delete</Button>

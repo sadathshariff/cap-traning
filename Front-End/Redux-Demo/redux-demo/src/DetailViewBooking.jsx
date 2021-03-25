@@ -1,4 +1,43 @@
 import React, { Component } from 'react'
+import {withStyles, makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import DeleteIcon from '@material-ui/icons/Delete';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles({
+    table: {
+      minWidth: 600,
+    },
+  },
+  (theme) => ({
+    button: {
+      margin: theme.spacing(1),
+    },
+  }));  
+
+  const StyledTableCell = withStyles((theme) => ({
+    head: {
+      backgroundColor: theme.palette.common.black,
+      color: theme.palette.common.white,
+    },
+    body: {
+      fontSize: 14,
+    },
+  }))(TableCell);
+  
+  const StyledTableRow = withStyles((theme) => ({
+    root: {
+      '&:nth-of-type(odd)': {
+        backgroundColor: theme.palette.action.hover,
+      },
+    },
+  }))(TableRow);
 
 export default class DetailViewBooking extends Component {
 
@@ -21,11 +60,78 @@ export default class DetailViewBooking extends Component {
     }
 
     render() {
-        return(
-            <div>
-                 <h4>Detail View Of Booking</h4>
-                <h5>BookingID: {this.state.bookings.bookingId}</h5>
-                <table class="table table-striped table-bordered ">
+
+        const classes = useStyles;
+            return (
+              <div>
+                      <TableContainer  component={Paper}>
+                  <Table  className={classes.table} aria-label="sticky table">
+                      <TableHead>
+                          <StyledTableRow >
+                              <StyledTableCell align="center">Booking</StyledTableCell>
+                              <StyledTableCell align="center">Details</StyledTableCell>
+                          </StyledTableRow>
+                      </TableHead>
+                      <TableBody>
+                      <StyledTableRow>                        
+                              <StyledTableCell align="center">Username</StyledTableCell>
+                              <StyledTableCell align="center">{this.state.bookings.username}</StyledTableCell>
+                          </StyledTableRow>
+                      </TableBody>
+                      <TableBody>
+                      <StyledTableRow>                        
+                              <StyledTableCell align="center">BusNumber</StyledTableCell>
+                              <StyledTableCell align="center">{this.state.bookings.busNumber}</StyledTableCell>
+                          </StyledTableRow>
+                      </TableBody>
+                      <TableBody>
+                      <StyledTableRow>                        
+                              <StyledTableCell align="center">Source</StyledTableCell>
+                              <StyledTableCell align="center">{this.state.bookings.source}</StyledTableCell>
+                          </StyledTableRow>
+                      </TableBody>
+                      <TableBody>
+                      <StyledTableRow>                        
+                              <StyledTableCell align="center">Destination</StyledTableCell>
+                              <StyledTableCell align="center">{this.state.bookings.destination}</StyledTableCell>
+                          </StyledTableRow>
+                      </TableBody>
+                      <TableBody>
+                      <StyledTableRow>                        
+                              <StyledTableCell align="center">Number of Seats</StyledTableCell>
+                              <StyledTableCell align="center">{this.state.bookings.numberOfSeats}</StyledTableCell>
+                          </StyledTableRow>
+                      </TableBody>
+                      <TableBody>
+                      <StyledTableRow>                        
+                              <StyledTableCell align="center">Amount Paid</StyledTableCell>
+                              <StyledTableCell align="center">{this.state.bookings.amountPaid}</StyledTableCell>
+                          </StyledTableRow>
+                      </TableBody>
+                      <TableBody>
+                      <StyledTableRow>                        
+                              <StyledTableCell align="center">Date</StyledTableCell>
+                              <StyledTableCell align="center">{this.state.bookings.date}</StyledTableCell>
+                          </StyledTableRow>
+                      </TableBody>
+                      <TableBody>
+                      <StyledTableRow>                        
+                              <StyledTableCell align="center">Start Time</StyledTableCell>
+                              <StyledTableCell align="center">{this.state.bookings.journeyStartTime}</StyledTableCell>
+                          </StyledTableRow>
+                      </TableBody>
+                      <TableBody>
+                      <StyledTableRow>                        
+                              <StyledTableCell align="center">End Time</StyledTableCell>
+                              <StyledTableCell align="center">{this.state.bookings.journeyEndTime}</StyledTableCell>
+                          </StyledTableRow>
+                      </TableBody>
+                  </Table>
+              </TableContainer>
+              </div>
+                
+            )
+                {/* <table class="table table-striped table-bordered ">
                 <thead>
                     <tr>
                         <th scope="col">Number of Seats</th>
@@ -44,9 +150,8 @@ export default class DetailViewBooking extends Component {
                         <td>{this.state.bookings.journeyEndTime}</td>
                     </tr>
                 </tbody>
-            </table>
-            </div>
-        )
+            </table> */}
+        
     }
 
 }

@@ -18,7 +18,7 @@ import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles({
     table: {
-      minWidth: 650,
+      minWidth: 600,
     },
   },
   (theme) => ({
@@ -73,11 +73,11 @@ class ViewBooking extends Component {
             <StyledTableRow key={i}>
                 <StyledTableCell align="center"><Link to={"/detailview/" + booking.bookingId}>{booking.bookingId}</Link></StyledTableCell>
                 <StyledTableCell align="center">{booking.username}</StyledTableCell>
-                <StyledTableCell align="center">{booking.busNumber}</StyledTableCell>
+                {/* <StyledTableCell align="center">{booking.busNumber}</StyledTableCell>
                 <StyledTableCell align="center">{booking.source}</StyledTableCell>
                 <StyledTableCell align="center">{booking.destination}</StyledTableCell>
                 <StyledTableCell align="center">{booking.numberOfSeats}</StyledTableCell>
-                <StyledTableCell align="center">{booking.amountPaid}</StyledTableCell>
+                <StyledTableCell align="center">{booking.amountPaid}</StyledTableCell> */}
                 <StyledTableCell align="center"><Link to={"/update/" + booking.bookingId}><Button variant="contained" color="primary">
                             Update</Button></Link></StyledTableCell>
                 <StyledTableCell align="center"><Button variant="contained" color="secondary" className={classes.button}
@@ -140,11 +140,11 @@ class ViewBooking extends Component {
                         <StyledTableRow>
                             <StyledTableCell align="center">BookingID</StyledTableCell>
                             <StyledTableCell align="center">Username</StyledTableCell>
-                            <StyledTableCell align="center">BusNumber</StyledTableCell>
-                            <StyledTableCell align="center">Source</StyledTableCell>
-                            <StyledTableCell align="center">Destination</StyledTableCell>
-                            <StyledTableCell align="center">Number of Seats</StyledTableCell>
-                            <StyledTableCell align="center">Amount Paid</StyledTableCell>
+                              {/* <StyledTableCell align="center">BusNumber</StyledTableCell>
+                              <StyledTableCell align="center">Source</StyledTableCell>
+                              <StyledTableCell align="center">Destination</StyledTableCell>
+                              <StyledTableCell align="center">Number of Seats</StyledTableCell>
+                              <StyledTableCell align="center">Amount Paid</StyledTableCell> */}
                             <StyledTableCell align="center">Update</StyledTableCell>
                             <StyledTableCell align="center">Delete</StyledTableCell>
                         </StyledTableRow>
