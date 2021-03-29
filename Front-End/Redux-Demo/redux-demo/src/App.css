@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+#listStyle {
+  padding: 0.1rem;
+  list-style-type: none;
+  font-size: 1rem;
+  font-weight: lighter;
+  margin: 0.1rem;
+}
+#linkStyle {
+  text-decoration: none;
+}
+#headingText {
+  text-align: st;
+}

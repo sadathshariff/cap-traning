@@ -80,7 +80,7 @@ const useStyles = ((theme) => ({
                 margin:"1rem"
               }}>
                 <form className={classes.root} noValidate autoComplete="off">
-                    <TextField inputRef={this.password} id="outlined-basic" label="Enter New Password" variant="outlined" />
+                    <TextField type="password" inputRef={this.password} id="outlined-basic" label="Enter New Password" variant="outlined" />
                 </form>
                 </div>
 

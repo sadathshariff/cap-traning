@@ -41,7 +41,7 @@ class AddUser extends Component {
         return (
 
             <div style={{
-                display:"flex",
+                display:"grid",
                 alignItems:"center",
                 justifyContent:"center",
                 borderTop:"1px solid black",
@@ -66,10 +66,11 @@ class AddUser extends Component {
                 <div style={{
                     fontFamily:"cursive",
                     fontWeight:"light",
-                    fontSize:"1.2rem"
+                    fontSize:"1.2rem",
+                    color:"blue"
 
                 }}>
-                   <h2>Add User:</h2>
+                   <h2>Sign-up:</h2>
                 </div>
                 <TextField inputRef ={this.username} id="outlined-basic" label="Enter Username" variant="outlined" />
             </form>
@@ -82,7 +83,7 @@ class AddUser extends Component {
                 margin:"1rem"
               }}>
                 <form className={classes.root} noValidate autoComplete="off">
-                    <TextField inputRef={this.password} id="outlined-basic" label="Enter Password" variant="outlined" />
+                    <TextField type = "password" inputRef={this.password} id="outlined-basic" label="Enter Password" variant="outlined" />
                 </form>
                 </div>
 
