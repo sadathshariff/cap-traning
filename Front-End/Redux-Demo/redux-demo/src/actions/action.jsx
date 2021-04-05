@@ -203,3 +203,126 @@ export const updateUser = (username, password) =>{
             })
     }
 }
+
+export const saveBus = (payload) => {
+    return {type: "ADD_BUS", payload: {message: "Successfully added Bus!"}}
+}
+
+export const addBus = (payload) => {
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    };
+    return dispatch => {
+        fetch('http://localhost:8090/api/v1/busoperator/', requestOptions)
+            .then(res => {
+                console.log(res)
+                if(res.status === 201){
+                    console.log("success");
+                    dispatch(saveBus())
+                }
+            })   
+    }
+}
+
+export const findBus = (payload) => {
+    return {type: "FIND_BUS", payload: payload}
+}
+
+export const fetchBus = () => {
+
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    };
+    return dispatch => {
+        fetch('http://localhost:8090/api/v1/admin/getallbus/', requestOptions)
+            .then(res => {
+                console.log(res);
+                return res.json();
+            })
+            .then(data => {
+                console.log(data);
+                dispatch(findBus(data));
+            }) 
+    }
+}
+
+export const removeBus = (payload) => {
+    return {type: "DELETE_BUS", payload}
+}
+
+export const deleteBus = (busNumber) =>{
+    
+    const requestOptions = {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' }
+    };
+    return dispatch => {
+        let message = ''
+        console.log('Deleting Bus ...' , busNumber)
+        fetch('http://localhost:8090/api/v1/admin/deletebus/' + busNumber, requestOptions)
+            .then(res => {
+                console.log(res);
+                if(res.status === 200){
+                    message = 'bus successfully deleted'
+                }
+                else{
+                    message = 'Failed to delete bus'
+                }
+                
+            })
+            .then(data => {
+                console.log(data);
+                dispatch(removeBus({bus: data, message}))
+                dispatch(fetchBus())
+                
+            }) 
+    }
+}
+
+export const saveFeedback = (paylaod) => {
+    return {type:"ADD_FEEDBACK",paylaod:{message:"Successfully added Feedback"}}
+}
+
+export const addFeedback = (payload) => {
+    const requestOptions = {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(payload)
+    };
+    return dispatch => {
+        fetch('http://localhost:8090/api/v1/feedbacks/',requestOptions)
+        .then(res => {
+            console.log(res)
+            if(res.status === 201){
+                console.log("Success");
+                dispatch(saveFeedback())
+            }
+        })
+    }
+}
+
+export const findFeedback = (payload) => {
+    return {type: "FIND_FEEDBACK", payload: payload}
+}
+
+export const fetchFeedback = () => {
+
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    };
+    return dispatch => {
+        fetch('http://localhost:8090/api/v1/feedbacks/getall/', requestOptions)
+            .then(res => {
+                console.log(res);
+                return res.json();
+            })
+            .then(data => {
+                console.log(data);
+                dispatch(findFeedback(data));
+            }) 
+    }
+}

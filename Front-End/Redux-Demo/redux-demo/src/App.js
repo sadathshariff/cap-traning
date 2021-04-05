@@ -14,6 +14,10 @@ import DetailViewBooking from './DetailViewBooking'
 import AddUser from './components/AddUser';
 import ViewUser from './components/ViewUser';
 import UpdateUser from './components/UpdateUser';
+import ViewFeedback from './components/ViewFeedback';
+import AddFeedback from './components/AddFeedback';
+import AddBus from './components/AddBus';
+import ViewBus from './components/ViewBus';
 
 import { makeStyles,useTheme,withStyles  } from '@material-ui/core/styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -338,8 +342,11 @@ function App() {
         </AccordionSummary>
         <AccordionDetails>
           <ul>
-            <li id = "listStyle"><Link id ="linkStyle" className="nav-item" to="/">{<h4>View Bookings</h4>}</Link></li>
-            <li id = "listStyle"><Link id ="linkStyle" className="nav-item" to="/user">{<h4>View Users</h4>}</Link></li>
+            <li id = "listStyle"><Link id="linkStyle" className="nav-item" to="/" onClick={handleDrawerClose}>{<h4>View Bookings</h4>}</Link></li>
+            <li id = "listStyle"><Link id="linkStyle" className="nav-item" to="/user" onClick={handleDrawerClose}>{<h4>View Users</h4>}</Link></li>
+            <li id = "listStyle"><Link id="linkStyle" className="nav-item" to="/viewfeedback" onClick={handleDrawerClose}>{<h4>View Feedback</h4>}</Link></li>
+            <li id = "listStyle"><Link id="linkStyle" className="nav-link " to="/busoperator/addbus" onClick={handleDrawerClose}>{<h4>Add Bus</h4>}</Link></li>
+           <li id = "listStyle"><Link Link id="linkStyle" className="nav-link " to="/admin/viewbus" onClick={handleDrawerClose}>{<h4>View Bus</h4>}</Link></li>
           </ul>
          
         </AccordionDetails>
@@ -356,8 +363,10 @@ function App() {
         </AccordionSummary>
         <AccordionDetails>
           <ul>
-            <li id = "listStyle"> <Link id ="linkStyle" className="nav-item" to="/user/add">{<h4>Add User</h4>}</Link></li>
-            <li id="listStyle"><Link id ="linkStyle" className="nav-item" to="/add">{<h4>Add Booking</h4>}</Link></li>
+            <li id = "listStyle"> <Link id ="linkStyle" className="nav-item" to="/user/add" onClick={handleDrawerClose}>{<h4>Add User</h4>}</Link></li>
+            <li id="listStyle"><Link id ="linkStyle" className="nav-item" to="/add" onClick={handleDrawerClose}>{<h4>Add Booking</h4>}</Link></li>
+            <li id="listStyle"><Link id ="linkStyle" className="nav-item" to="/feedback" onClick={handleDrawerClose}>{<h4>Add Feedback</h4>}</Link></li>
+            
           </ul>
           
         </AccordionDetails>
@@ -447,10 +456,29 @@ function App() {
           <Route exact path="/user">
             <ViewUser />
           </Route>
+          
+          <Route exact path="/viewfeedback">
+            <ViewFeedback />
+          </Route>
+          
           <Route exact path="/user/add">
             <AddUser />
           </Route>
+
+          <Route path="/busoperator/addbus">
+            <AddBus />
+          </Route>
+
+          <Route path="/admin/viewbus">
+            <ViewBus />
+          </Route>
+
+          <Route exact path="/feedback">
+            <AddFeedback />
+          </Route>
           <Route  path="/user/update/:username" component={UpdateUser}></Route>
+
+          
          
 
         </Switch>

@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import * as actions from '../actions/action'
 import Button from '@material-ui/core/Button';
-import SaveIcon from '@material-ui/icons/Save';
 import TextField from '@material-ui/core/TextField';
 
 
@@ -45,67 +44,111 @@ class UpdateBooking extends Component {
 
         return (
 
+
             <div style={{
                 display:"flex",
-                alignItems:"center",
-                justifyContent:"center",
-                borderTop:"1px solid black",
-                borderBottom:"1px solid black",
-                borderRadius:"2rem",
-                padding:"1rem",
-                margin:"auto",
-                width:"50%",
-                height:"50%",
-                boxSizing:"border-box",
-            
+                 alignItems:"center",
+                 justifyContent:"center",
+                 borderTop:"1px solid black",
+                 borderBottom:"1px solid black",
+                 borderRadius:"2rem",
+                 padding:"1rem",
+                 margin:"auto",
+                 width:"50%",
+                 height:"50%",
+                 boxSizing:"border-box",
             }}>
+                 <form className={classes.root} noValidate autoComplete="off" > 
 
-            <div>
-                <div>
 
-                <div style={{
-                    fontFamily:"cursive",
-                    fontWeight:"light",
-                    fontSize:"1.2rem"
+                 {<h2 style={{
+                     fontFamily:'cursive',
+                     fontSize:'1.4rem'
+                 }}>Update Date Of Booking:</h2>}
 
-                }}>
-                   <h2>Update Booking Date:</h2>
-                </div>
 
-                <div style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    margin:"1rem"
+                 <div style={{
+                     margin:'1rem 1.4rem'
+                 }}>
+                 <TextField  defaultValue={this.props.match.params.id} id="standard-read-only-input" label="Booking ID" variant="filled" InputProps={{readOnly: true,}}></TextField>
+                 </div>
+                 <div style={{
+                     margin:'0.6rem'
+                 }}>
+                 <TextField  inputRef={this.date} id="outlined-required"  type="date" helperText="Enter new Date to be updated above" variant="filled"></TextField>
+                 </div>
+                 <div style={{
+                     margin:'1rem 3rem'
+                 }}>
+                 <Button variant="contained" color="primary" className={classes.button} onClick={this.updateBooking.bind(this)}>Update Date</Button> 
+                 </div>
 
-                }}>
-            <form className={classes.root} noValidate autoComplete="off">
+                 </form>
+                 
+
+            </div>
+
+            // <div style={{
+            //     display:"flex",
+            //     alignItems:"center",
+            //     justifyContent:"center",
+            //     borderTop:"1px solid black",
+            //     borderBottom:"1px solid black",
+            //     borderRadius:"2rem",
+            //     padding:"1rem",
+            //     margin:"auto",
+            //     width:"50%",
+            //     height:"50%",
+            //     boxSizing:"border-box",
             
-                <TextField value ={this.props.match.params.id} id="outlined-basic" label="Booking-Id" variant="outlined" disabled />
-            </form>
-            </div>
+            // }}>
 
-            <div style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                margin:"1rem"
-              }}>
-                <form className={classes.root} noValidate autoComplete="off">
-                    <TextField type="date"  inputRef={this.date} id="outlined-basic" label="" variant="outlined" />
+            // <div>
+            //     <div>
+
+            //     <div style={{
+            //         fontFamily:"cursive",
+            //         fontWeight:"light",
+            //         fontSize:"1.2rem"
+
+            //     }}>
+            //        <h2>Update Booking Date:</h2>
+            //     </div>
+
+            //     <div style={{
+            //         display: "flex",
+            //         justifyContent: "center",
+            //         alignItems: "center",
+            //         margin:"1rem"
+
+            //     }}>
+            // <form className={classes.root} noValidate autoComplete="off">
+            
+            //     <TextField value ={this.props.match.params.id} id="outlined-basic" label="Booking-Id" variant="outlined" disabled />
+            // </form>
+            // </div>
+
+            // <div style={{
+            //     display: "flex",
+            //     justifyContent: "center",
+            //     alignItems: "center",
+            //     margin:"1rem"
+            //   }}>
+            //     <form className={classes.root} noValidate autoComplete="off">
+            //         <TextField type="date"  inputRef={this.date} id="outlined-basic" label="" variant="outlined" />
                    
-                </form>
-                </div>
+            //     </form>
+            //     </div>
 
-                <div style={{display: "flex",justifyContent: "center",alignItems: "center"}}>
-                <Button variant="contained" color="primary" size="medium" className={classes.button} startIcon={<SaveIcon />}
-                    onClick={this.updateBooking.bind(this)}>Update</Button></div>
-                </div>
+            //     <div style={{display: "flex",justifyContent: "center",alignItems: "center"}}>
+            //     <Button variant="contained" color="primary" size="medium" className={classes.button} startIcon={<SaveIcon />}
+            //         onClick={this.updateBooking.bind(this)}>Update</Button></div>
+            //     </div>
 
 
 
-            </div>
-            </div>
+            // </div>
+            // </div>
             /* // <div>
 
             //     <div className="alert alert-success" role="alert">
