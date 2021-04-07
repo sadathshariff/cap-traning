@@ -101,6 +101,60 @@ export const updateBookings = (id, date) =>{
     }
 }
 
+export const viewBookingByUsers = (payload) => {
+    return {type: "FIND_BOOKING_USER", payload: payload}
+}
+
+export const viewBookingByUser = (username) => {
+
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+        
+    };
+    return dispatch => {
+        console.log(username)
+        fetch('http://localhost:8090/api/v1/bookings/getbookingbyusername/'+ username, requestOptions)
+            .then(res => {
+                console.log(res);
+                return res.json();
+            })
+            .then(data => {
+                console.log(data);
+                dispatch(findBookings(data));
+            })
+    }
+}
+
+
+export const getUser = (payload) => {
+    return {type: "GET_USER", payload}
+}
+
+export const errorUser = (payload) => {
+    return {type: "ERROR_USER", payload}
+}
+
+export const checkUsername = (username, password) => {
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    };
+    return dispatch => {
+        fetch('http://localhost:8090/api/v1/users/getbyusername/' + username, requestOptions)
+            .then(res => {
+                console.log(res)
+                if(res.status === 302){
+                    console.log("found");
+                    dispatch(getUser(username));
+                    
+                }
+                else{
+                    dispatch(errorUser("Incorrect credentials"));
+                }
+            })   
+    }
+}
 
 export const saveUser = (payload) => {
     return {type:"ADD_USER", payload:{message:"Successfully added User"}}

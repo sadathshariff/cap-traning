@@ -6,7 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-
+import { createBrowserHistory } from 'history';
 import AddBooking from './components/AddBooking';
 import UpdateBooking from './components/UpdateBooking';
 import ViewBooking from './components/ViewBooking';
@@ -18,6 +18,8 @@ import ViewFeedback from './components/ViewFeedback';
 import AddFeedback from './components/AddFeedback';
 import AddBus from './components/AddBus';
 import ViewBus from './components/ViewBus';
+import Login from './components/Login';
+import ViewBookingByUser from './components/ViewBookingByUser';
 
 import { makeStyles,useTheme,withStyles  } from '@material-ui/core/styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -36,14 +38,11 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-// import Accordion from '@material-ui/core/Accordion';
-// import AccordionSummary from '@material-ui/core/AccordionSummary';
-// import AccordionDetails from '@material-ui/core/AccordionDetails';
-
-
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
+
+var hist = createBrowserHistory();
 
 const Accordion = withStyles({
   root: {
@@ -172,77 +171,6 @@ const useStyles1 = makeStyles((theme) => ({
 
 
 
-// const drawerWidth = "280px";
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-      
-//       display: 'flex',
-//       width: '100%',
-              
-//   },
-//   menuButton: {
-//     marginRight: theme.spacing(2),
-//   },
-//   title: {
-//     //flexGrow: 1,
-//   },
-//   appBar: {
-//     transition: theme.transitions.create(['margin', 'width'], {
-//       easing: theme.transitions.easing.sharp,
-//       duration: theme.transitions.duration.leavingScreen,
-//     }),
-//   },
-//   appBarShift: {
-//     //width: `calc(100% - ${drawerWidth}px)`,
-//     marginLeft: drawerWidth,
-//     transition: theme.transitions.create(['margin', 'width'], {
-//       easing: theme.transitions.easing.easeOut,
-//       duration: theme.transitions.duration.enteringScreen,
-//     }),
-//   },
-//   menuButton: {
-//     marginRight: theme.spacing(2),
-//   },
-//   hide: {
-//     display: 'none',
-//   },
-//   drawer: {
-//     width: drawerWidth,
-//     flexShrink: 0,
-//   },
-//   drawerPaper: {
-//     width: drawerWidth,
-//   },
-//   drawerHeader: {
-//     display: 'flex',
-//     alignItems: 'center',
-//     padding: theme.spacing(0, 1),
-//     // necessary for content to be below app bar
-//     ...theme.mixins.toolbar,
-//     justifyContent: 'flex-start',
-//   },
-//   content: {
-//     flexGrow: 1,
-//     padding: theme.spacing(3),
-//     transition: theme.transitions.create('margin', {
-//       easing: theme.transitions.easing.sharp,
-//       duration: theme.transitions.duration.leavingScreen,
-//     }),
-//     marginLeft:0,
-//   },
-//   contentShift: {
-//     transition: theme.transitions.create('margin', {
-//       easing: theme.transitions.easing.easeOut,
-//       duration: theme.transitions.duration.enteringScreen,
-//     }),
-//     marginLeft: 0,
-//   },
-//   heading: {
-//     fontSize: theme.typography.pxToRem(15),
-//     fontWeight: theme.typography.fontWeightRegular,
-//   },
-// }));
-
 function App() {
   const classes = useStyles();
   const classes1 = useStyles1();
@@ -274,21 +202,8 @@ function App() {
     
         
         
-    <Router>
-{/* 
-      <div className={classes.root}>
-            <AppBar position="static">
-              <Toolbar>
-                <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                  <MenuIcon />
-                </IconButton>
-                <Typography variant="h6" className={classes.title}>
-                  {<h3>Online Bus Booking</h3>}
-                </Typography>
-              </Toolbar>
-            </AppBar>
-          </div>
-      <div> */}
+    <Router history={hist}>
+
       <div className={classes.root}>
       <CssBaseline />
       <AppBar
@@ -342,7 +257,7 @@ function App() {
         </AccordionSummary>
         <AccordionDetails>
           <ul>
-            <li id = "listStyle"><Link id="linkStyle" className="nav-item" to="/" onClick={handleDrawerClose}>{<h4>View Bookings</h4>}</Link></li>
+            <li id = "listStyle"><Link id="linkStyle" className="nav-item" to="/viewbookings" onClick={handleDrawerClose}>{<h4>View Bookings</h4>}</Link></li>
             <li id = "listStyle"><Link id="linkStyle" className="nav-item" to="/user" onClick={handleDrawerClose}>{<h4>View Users</h4>}</Link></li>
             <li id = "listStyle"><Link id="linkStyle" className="nav-item" to="/viewfeedback" onClick={handleDrawerClose}>{<h4>View Feedback</h4>}</Link></li>
             <li id = "listStyle"><Link id="linkStyle" className="nav-link " to="/busoperator/addbus" onClick={handleDrawerClose}>{<h4>Add Bus</h4>}</Link></li>
@@ -363,8 +278,9 @@ function App() {
         </AccordionSummary>
         <AccordionDetails>
           <ul>
-            <li id = "listStyle"> <Link id ="linkStyle" className="nav-item" to="/user/add" onClick={handleDrawerClose}>{<h4>Add User</h4>}</Link></li>
-            <li id="listStyle"><Link id ="linkStyle" className="nav-item" to="/add" onClick={handleDrawerClose}>{<h4>Add Booking</h4>}</Link></li>
+          <li id = "listStyle"> <Link id ="linkStyle" className="nav-item" to="/" onClick={handleDrawerClose}>{<h4>Login</h4>}</Link></li>
+            <li id = "listStyle"> <Link id ="linkStyle" className="nav-item" to="/user/add" onClick={handleDrawerClose}>{<h4>SignUp / New User</h4>}</Link></li>
+            <li id="listStyle"><Link id ="linkStyle" className="nav-item" to="/addbooking" onClick={handleDrawerClose}>{<h4>Add Booking</h4>}</Link></li>
             <li id="listStyle"><Link id ="linkStyle" className="nav-item" to="/feedback" onClick={handleDrawerClose}>{<h4>Add Feedback</h4>}</Link></li>
             
           </ul>
@@ -373,89 +289,41 @@ function App() {
       </Accordion>
     </div>
       </Drawer>
-      <main
+        <main
         className={clsx(classes1.content, {
           [classes.contentShift]: open,
         })}
       >
-        <div className={classes1.drawerHeader} />
+         {/* <div className={classes1.drawerHeader} />  */}
         
-      </main>
-    {/* </div>
-      <TreeView 
-          className={classes.root}
-          defaultCollapseIcon={<ExpandMoreIcon />}
-          defaultExpandIcon={<ChevronRightIcon />}>
-
-          <TreeItem nodeId="1" label={<h3>Online Bus Booking</h3>}>
-            <TreeItem nodeId="2" label={<h4>Admin</h4>}>
-                 <Link className="nav-item" to="/">View Bookings</Link>
-                  <Link className="nav-item" to="/user">View Users</Link>
-            </TreeItem>
-            <TreeItem nodeId="3" label={<h4>User</h4>}>
-                  <Link className="nav-item" to="/user/add">Add User</Link>
-                  <Link className="nav-item" to="/add">Add Booking</Link>
-            </TreeItem>
-          </TreeItem>
-        </TreeView> */}
-                {/* <TreeItem nodeId="2" label={<h5>Admin</h5>}/>
-                  <Link className="nav-item" to="/">View Bookings</Link>
-                  <Link className="nav-item" to="/user">View Users</Link>  
-                </TreeItem>
-                <TreeItem nodeId="3" label={<h5>User</h5>}>
-                <Link className="nav-item" to="/user/add">Add User</Link>
-                <Link className="nav-item" to="/add">Add Booking</Link>
-                </TreeItem> */}
-          
-          
-     
-      {/* <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-            <li className="nav-item mx-3">
-            <Link className="nav-item" to="/">View Bookings</Link>
-            </li>
-            <li className="nav-item mx-3">
-            <Link className="nav-item" to="/add">Add Booking</Link>
-            </li>
-            
-            {/* <li className="nav-item">
-            <Link className="nav-item" to="/update">Update Booking</Link>
-            </li> */}
-
-            {/* <li className="nav-item mx-3 ">
-            <Link className="nav-item" to="/user">View Users</Link>
-            </li>
-            <li className="nav-item mx-3">
-            <Link className="nav-item" to="/user/add">Add User</Link>
-            </li>
-
-          </ul>
-        </div>
-      </nav> */} 
+      </main> 
 
 
         
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route exact path="/">
+
+        <Route exact path="/">
+            <Login />
+          </Route>
+          <Route exact path="/viewbookings">
             <ViewBooking />
           </Route>
-          <Route exact path="/add">
+
+          <Route exact path="/viewbookingsbyusername/:username" component ={ViewBookingByUser}>
+          </Route>
+          <Route exact path="/addbooking">
             <AddBooking />
+          </Route>
+          <Route exact path="/user">
+            <ViewUser />
           </Route>
           <Route  path="/update/:id" component ={UpdateBooking}>
           </Route>
           <Route path="/detailview/:id" component={DetailViewBooking}></Route>
 
-          <Route exact path="/user">
-            <ViewUser />
-          </Route>
+         
           
           <Route exact path="/viewfeedback">
             <ViewFeedback />
@@ -464,6 +332,7 @@ function App() {
           <Route exact path="/user/add">
             <AddUser />
           </Route>
+          
 
           <Route path="/busoperator/addbus">
             <AddBus />

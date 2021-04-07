@@ -1,21 +1,62 @@
 import React, { Component } from 'react'
+import  {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions/action'
 import Button from '@material-ui/core/Button';
-import SaveIcon from '@material-ui/icons/Save';
 import TextField from '@material-ui/core/TextField';
+import {Typography} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import Avatar from '@material-ui/core/Avatar';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
-const useStyles = ((theme) => ({
+
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Container from '@material-ui/core/Container';
+
+
+
+function Copyright() {
+    return (
+      <Typography variant="body2" color="textSecondary" align="center">
+        {'Copyright © '}
+        {/* <Link color="inherit" href="https://material-ui.com/"> */}
+          Your Website
+        {/* </Link>*/}{' '}
+        {new Date().getFullYear()}
+        {'.'}
+      </Typography>
+    );
+  }
+
+
+  const useStyles = makeStyles((theme) => ({
     root: {
-      '& > *': {
+      '& .MuiTextField-root': {
         margin: theme.spacing(1),
         width: '25ch',
       },
     },
-    button: {
+    paper: {
+        marginTop: theme.spacing(8),
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      },
+      avatar: {
         margin: theme.spacing(1),
-    },
-  }));
+        backgroundColor: theme.palette.secondary.main,
+      },
+      form: {
+        width: '100%', // Fix IE 11 issue.
+        marginTop: theme.spacing(3),
+      },
+      submit: {
+        margin: theme.spacing(3, 0, 2),
+      },
+    }));
+    
 class AddUser extends Component {
     constructor(){
         super();
@@ -35,85 +76,96 @@ class AddUser extends Component {
     render() {
 
         const classes = useStyles;
+        const handleClick = this.addUser.bind(this)
 
         return (
 
-            <div style={{
-                display:"grid",
-                alignItems:"center",
-                justifyContent:"center",
-                borderTop:"1px solid black",
-                borderBottom:"1px solid black",
-                borderRadius:"2.5rem",
-                padding:"1rem",
-                margin:"auto",
-                width:"50%",
-                height:"100ew",
-                boxSizing:"border-box",
-            
-            }}>
-                <div>
-                <div style = {{
-                    display:"flex",
-                    alignItems:"center",
-                    justifyContent:"center",
-                    margin:"1rem"
-                }}>
-
-            <form className={classes.root} noValidate autoComplete="off">
-                <div style={{
-                    fontFamily:"cursive",
-                    fontWeight:"light",
-                    fontSize:"1.2rem",
-                    color:"blue"
-
-                }}>
-                   <h2>Sign-up:</h2>
-                </div>
-                <TextField inputRef ={this.username} id="outlined-basic" label="Enter Username" variant="outlined" />
-            </form>
-            </div>
-
-            <div style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                margin:"1rem"
-              }}>
-                <form className={classes.root} noValidate autoComplete="off">
-                    <TextField type = "password" inputRef={this.password} id="outlined-basic" label="Enter Password" variant="outlined" />
-                </form>
-                </div>
-
-                <div style={{display: "flex",justifyContent: "center",alignItems: "center"}}>
-                <Button variant="contained" color="primary" size="medium" className={classes.button} startIcon={<SaveIcon />}
-                    onClick={this.addUser.bind(this)}>Save</Button></div>
-                </div>
-            </div>
-
-
             
 
-            // <div>
-            //      <div className="alert alert-success" role="alert">
-            //         {this.props.message}
-            //     </div>
+            <div>
+                 
+            <Container component="main" maxWidth="xs">
+            <CssBaseline />
+ <div className={classes.paper} >
+   <div style={{display:'flex', justifyContent:'center',}}>  
+   <Avatar className={classes.avatar} style={{backgroundColor:'blue'}} >
+     <LockOutlinedIcon />
+   </Avatar>
 
-            //     <div className="input-group mb-3">
-            //     <div className="input-group-prepend">
-            //         <span className="input-group-text" id="basic-addon1">UserName</span>
-            //     </div>
-            //     <input type="text" ref={this.username} className="form-control" placeholder="Enter Name" aria-label="Username" aria-describedby="basic-addon1"  required />
-            //     </div>
+   </div>
+   
+   <Typography component="h1" variant="h5" style ={{color:'blue',fontFamily:'cursive',fontSize:'35px',textAlign:'center'}}>
+     Sign up
+   </Typography>
+   <br/>
+   <form className={classes.form} noValidate>
+     <Grid container spacing={2}>
+       
+       <Grid item xs={12}>
+         <TextField
+           variant="outlined"
+           required
+           fullWidth
+           
+           label="Enter Username"
+           
+           inputRef={this.username}
+         />
+       </Grid>
+       <Grid item xs={12}>
+         <TextField
+           variant="outlined"
+           required
+           fullWidth
+           name="password"
+           label="Password"
+           type="password"
+           id="password"
+           inputRef={this.password}
+         />
+       </Grid>
+       {/* <Grid item xs={12}>
+         <FormControlLabel
+           control={<Checkbox value="allowExtraEmails" color="primary" />}
+           label="I want to receive inspiration, marketing promotions and updates via email."
+         />
+       </Grid> */}
+     </Grid>
+     <br/>
+     <Button
+       // type="submit"
+       fullWidth
+       variant="contained"
+       color="primary"
+       //className={classes.submit}
+       //onClick={this.addUser.bind(this)}
+       onClick = {handleClick}
+      
+     >
+         
+       Sign Up
+     </Button>
+     
+     <Grid container justify="flex-end">
+       <Grid item style ={{padding:'1rem'}}>
+         <Link to='/' id ="linkStyle" style={{fontSize:'16px'}}  variant="body2">
+           Already have an account? Sign in
+         </Link>
+       </Grid>
+     </Grid>
+     
+     
+     <TextField  fullWidth disabled id="outlined-required" label={this.props.message} variant="standard"></TextField>        
+   
+   </form>
+ </div>
+ <Box mt={5}>
+   <Copyright />
+ </Box>
+</Container>  
+ </div>
+        
 
-            //     <div className="input-group mb-3">
-            //     <div className="input-group-prepend">
-            //         <span className="input-group-text" id="basic-addon1">Password</span>
-            //     </div>
-            //     <input type="password" ref={this.password} className="form-control" placeholder="Password" aria-label="Username"  aria-describedby="basic-addon1"  required /  >
-            //     </div>
-            //     <button type="button" className="btn btn-primary" onClick={this.addUser.bind(this)}>Add User</button> 
-            // </div>
         )
     }
 }

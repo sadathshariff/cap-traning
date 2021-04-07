@@ -50,3 +50,6 @@
 #headingText {
   text-align: st;
 }
+#linkStyle:hover {
+  cursor: progress;
+}
