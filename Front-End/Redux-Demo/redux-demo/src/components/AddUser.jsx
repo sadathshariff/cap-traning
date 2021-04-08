@@ -86,18 +86,14 @@ class AddUser extends Component {
                  
             <Container component="main" maxWidth="xs">
             <CssBaseline />
- <div className={classes.paper} >
-   <div style={{display:'flex', justifyContent:'center',}}>  
-   <Avatar className={classes.avatar} style={{backgroundColor:'blue'}} >
-     <LockOutlinedIcon />
+ <div className={classes.paper} > 
+  <Typography component="h1" variant="h5" style ={{display:'flex', justifyContent:'start',color:'blue',fontFamily:'cursive',fontSize:'35px',textAlign:'center' ,margin:'1rem'}}>
+   <Avatar className={classes.avatar} style={{backgroundColor:'blue',marginRight:'1rem'}} >
+     
    </Avatar>
-
-   </div>
-   
-   <Typography component="h1" variant="h5" style ={{color:'blue',fontFamily:'cursive',fontSize:'35px',textAlign:'center'}}>
      Sign up
    </Typography>
-   <br/>
+   
    <form className={classes.form} noValidate>
      <Grid container spacing={2}>
        

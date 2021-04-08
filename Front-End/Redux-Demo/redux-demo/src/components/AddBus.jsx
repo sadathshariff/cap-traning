@@ -14,7 +14,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import DirectionsBusIcon from '@material-ui/icons/DirectionsBus';
+
 import Container from '@material-ui/core/Container';
 
 
@@ -86,10 +87,10 @@ class AddBus extends Component {
                 <Container component="main" maxWidth="xs">
                     <CssBaseline />
                     <div className={classes.paper}>
-                        <Avatar className={classes.avatar}>
-                        <LockOutlinedIcon />
+                        <Typography component="h1" variant="h5" style={{color:'blue',fontFamily:'cursive',display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+                        <Avatar className={classes.avatar}style={{backgroundColor:'blue',display:'flex',alignItems:'center'}}>
+                        <DirectionsBusIcon />
                         </Avatar>
-                        <Typography component="h1" variant="h5">
                         Adding a new Bus
                         </Typography>
                         <br/>
