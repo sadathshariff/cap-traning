@@ -71,66 +71,28 @@ class ViewBooking extends Component {
             return (
 
             <StyledTableRow key={i}>
-                <StyledTableCell align="center"><Link to={"/detailview/" + booking.bookingId}>{booking.bookingId}</Link></StyledTableCell>
+                <StyledTableCell align="center">{booking.bookingId}</StyledTableCell>
                 <StyledTableCell align="center">{booking.username}</StyledTableCell>
                 {/* <StyledTableCell align="center">{booking.busNumber}</StyledTableCell>
                 <StyledTableCell align="center">{booking.source}</StyledTableCell>
                 <StyledTableCell align="center">{booking.destination}</StyledTableCell>
                 <StyledTableCell align="center">{booking.numberOfSeats}</StyledTableCell>
                 <StyledTableCell align="center">{booking.amountPaid}</StyledTableCell> */}
-                <StyledTableCell align="center"><Link to={"/update/" + booking.bookingId}><Button variant="contained" color="primary">
+                {/* <StyledTableCell align="center"><Link to={"/update/" + booking.bookingId}><Button variant="contained" color="primary">
                             Update</Button></Link></StyledTableCell>
                 <StyledTableCell align="center"><Button variant="contained" color="secondary" className={classes.button}
                         startIcon={<DeleteIcon />} onClick={this.deleteBooking.bind(this, booking.bookingId)}>Delete</Button> </StyledTableCell>
-                
+                 */}
+                  <StyledTableCell align="center"><Link to={"/detailview/" + booking.bookingId}><Button variant="contained" color="primary">
+                            View</Button></Link></StyledTableCell>
             </StyledTableRow>
 
-            //     <tr key={i}>
-            //     {/* <td>{booking.bookingId}</td> */}
-            //     <Link to={"/detailview/" + booking.bookingId}>{booking.bookingId}</Link>
-            //     <td>{booking.username}</td>
-            //     <td>{booking.busNumber}</td>
-            //     <td>{booking.source}</td>
-            //     <td>{booking.destination}</td>
-            //     {/* <td>{booking.numberOfSeats}</td>
-            //     <td>{booking.amountPaid}</td> */}
-            //     {/* <td>{booking.date}</td>
-            //     <td>{booking.journeyStartTime}</td>
-            //     <td>{booking.journeyEndTime}</td> */}
-            //     <td><button type="button" className="btn btn-danger" onClick={this.deleteBooking.bind(this, booking.bookingId)}> Delete </button></td>
-            //     <td><Link to={"/update/" + booking.bookingId}><button type="button" className="btn btn-info">
-            //                 Update</button></Link></td>
-            // </tr>
+           
             )
         })
 
         return (
-            // <div className="row">
-            //     <div className="alert alert-success" role="alert">
-            //         {this.state.message}
-            //     </div>
-            //     <table className="table table-stripped table-bordered">
-            //         <thead>
-            //             <tr>
-            //                 <th scope="col">BookingID</th>
-            //                 <th scope="col">Username</th>
-            //                 <th scope="col">BusNumber</th>
-            //                 <th scope="col">Source</th>
-            //                 <th scope="col">Destination</th>
-            //                 {/* <th scope="col">Number of Seats</th>
-            //                 <th scope="col">Amount Paid</th> */}
-            //                 {/* <th scope="col">Date</th>
-            //                 <th scope="col">Start Time</th>
-            //                 <th scope="col">End Time</th>   */}
-            //                 <th scope = "col"> Delete </th>
-            //                 <th scope = "col" >Update</th>
-            //             </tr>
-            //         </thead>
-            //         <tbody>
-            //             {bookingList}
-            //         </tbody>
-            //     </table>
-            // </div>
+            
 
             <div>
 
@@ -145,8 +107,9 @@ class ViewBooking extends Component {
                               <StyledTableCell align="center">Destination</StyledTableCell>
                               <StyledTableCell align="center">Number of Seats</StyledTableCell>
                               <StyledTableCell align="center">Amount Paid</StyledTableCell> */}
-                            <StyledTableCell align="center">Update</StyledTableCell>
-                            <StyledTableCell align="center">Delete</StyledTableCell>
+                            {/* <StyledTableCell align="center">Update</StyledTableCell>
+                            <StyledTableCell align="center">Delete</StyledTableCell> */}
+                            <StyledTableCell align="center">Detail-View</StyledTableCell> 
                         </StyledTableRow>
                     </TableHead>
                     <TableBody>

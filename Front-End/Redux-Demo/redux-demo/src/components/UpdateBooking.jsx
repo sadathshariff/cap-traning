@@ -4,6 +4,14 @@ import { connect } from 'react-redux';
 import * as actions from '../actions/action'
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import Avatar from '@material-ui/core/Avatar';
+import CssBaseline from '@material-ui/core/CssBaseline'
+import {Typography} from '@material-ui/core';
+import EventRoundedIcon from '@material-ui/icons/EventRounded';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Container from '@material-ui/core/Container';
 
 
 
@@ -43,134 +51,69 @@ class UpdateBooking extends Component {
        
 
         return (
-
-
-            <div style={{
-                display:"flex",
-                 alignItems:"center",
-                 justifyContent:"center",
-                 borderTop:"1px solid black",
-                 borderBottom:"1px solid black",
-                 borderRadius:"2rem",
-                 padding:"1rem",
-                 margin:"auto",
-                 width:"50%",
-                 height:"50%",
-                 boxSizing:"border-box",
-            }}>
-                 <form className={classes.root} noValidate autoComplete="off" > 
-
-
-                 {<h2 style={{
-                     fontFamily:'cursive',
-                     fontSize:'1.4rem'
-                 }}>Update Date Of Booking:</h2>}
-
-
-                 <div style={{
-                     margin:'1rem 1.4rem'
-                 }}>
-                 <TextField  defaultValue={this.props.match.params.id} id="standard-read-only-input" label="Booking ID" variant="filled" InputProps={{readOnly: true,}}></TextField>
-                 </div>
-                 <div style={{
-                     margin:'0.6rem'
-                 }}>
-                 <TextField  inputRef={this.date} id="outlined-required"  type="date" helperText="Enter new Date to be updated above" variant="filled"></TextField>
-                 </div>
-                 <div style={{
-                     margin:'1rem 3rem'
-                 }}>
-                 <Button variant="contained" color="primary" className={classes.button} onClick={this.updateBooking.bind(this)}>Update Date</Button> 
-                 </div>
-
-                 </form>
-                 
-
-            </div>
-
-            // <div style={{
-            //     display:"flex",
-            //     alignItems:"center",
-            //     justifyContent:"center",
-            //     borderTop:"1px solid black",
-            //     borderBottom:"1px solid black",
-            //     borderRadius:"2rem",
-            //     padding:"1rem",
-            //     margin:"auto",
-            //     width:"50%",
-            //     height:"50%",
-            //     boxSizing:"border-box",
-            
-            // }}>
-
-            // <div>
-            //     <div>
-
-            //     <div style={{
-            //         fontFamily:"cursive",
-            //         fontWeight:"light",
-            //         fontSize:"1.2rem"
-
-            //     }}>
-            //        <h2>Update Booking Date:</h2>
-            //     </div>
-
-            //     <div style={{
-            //         display: "flex",
-            //         justifyContent: "center",
-            //         alignItems: "center",
-            //         margin:"1rem"
-
-            //     }}>
-            // <form className={classes.root} noValidate autoComplete="off">
-            
-            //     <TextField value ={this.props.match.params.id} id="outlined-basic" label="Booking-Id" variant="outlined" disabled />
-            // </form>
-            // </div>
-
-            // <div style={{
-            //     display: "flex",
-            //     justifyContent: "center",
-            //     alignItems: "center",
-            //     margin:"1rem"
-            //   }}>
-            //     <form className={classes.root} noValidate autoComplete="off">
-            //         <TextField type="date"  inputRef={this.date} id="outlined-basic" label="" variant="outlined" />
-                   
-            //     </form>
-            //     </div>
-
-            //     <div style={{display: "flex",justifyContent: "center",alignItems: "center"}}>
-            //     <Button variant="contained" color="primary" size="medium" className={classes.button} startIcon={<SaveIcon />}
-            //         onClick={this.updateBooking.bind(this)}>Update</Button></div>
-            //     </div>
-
-
-
-            // </div>
-            // </div>
-            /* // <div>
-
-            //     <div className="alert alert-success" role="alert">
-            //         {this.state.message}
-            //     </div>
-            //     <div className="input-group mb-3">
-            //     <div className="input-group-prepend">
-            //         <span className="input-group-text" id="basic-addon1">Booking ID</span>
-            //     </div>
-            //     <input type="number" value={this.props.match.params.id} disabled className="form-control" placeholder="Enter BookingID" aria-label="Username" aria-describedby="basic-addon1"/>
-            //     </div>
-
-            //     <div className="input-group mb-3">
-            //     <div className="input-group-prepend">
-            //         <span className="input-group-text" id="basic-addon1">Date</span>
-            //     </div>
-            //     <input type="date" ref={this.date} className="form-control" placeholder="Enter new Date" aria-label="Username" aria-describedby="basic-addon1"/>
-            //     </div>
-
-            //     <button type="button" className="btn btn-primary" onClick={this.updateBooking.bind(this)}>Update Booking</button>
-                
-            // </div> */
+            <div>
+            <Container component="main" maxWidth="xs">
+            <CssBaseline />
+ <div className={classes.paper} > 
+  <Typography component="h1" variant="h5" style ={{display:'flex', justifyContent:'start',color:'blue',fontFamily:'cursive',fontSize:'35px',textAlign:'center' ,margin:'1rem'}}>
+   <Avatar className={classes.avatar} style={{backgroundColor:'blue',marginRight:'1rem'}} >
+   <EventRoundedIcon />
+   </Avatar>
+     Update Date
+   </Typography>
+   
+   <form className={classes.form} noValidate>
+     <Grid container spacing={2}>
+       
+       <Grid item xs={12}>
+         <TextField
+         defaultValue={this.props.match.params.id}
+           variant="outlined"
+           required
+           fullWidth
+           disabled
+           
+           label="Enter Username"
+           
+           inputRef={this.username}
+         />
+       </Grid>
+       <Grid item xs={12}>
+         <TextField
+           variant="outlined"
+           required="true"
+           fullWidth
+           name="Date"
+           label="New Date"
+           type="date"
+           id="date"
+           InputLabelProps={{shrink: true}}
+           inputRef={this.date}
+         />
+       </Grid>
+       
+     </Grid>
+     <br/>
+     <Button
+       // type="submit"
+       fullWidth
+       variant="contained"
+       color="primary"
+       
+       //className={classes.submit}
+       //onClick={this.addUser.bind(this)}
+       onClick = {this.updateBooking.bind(this)}>
+       Update
+     </Button>
+     
+     
+     <TextField  fullWidth disabled id="outlined-required" label={this.props.message} variant="standard"></TextField>        
+   
+   </form>
+ </div>
+ 
+</Container>  
+ </div>
         )
     }
 }

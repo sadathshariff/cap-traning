@@ -144,7 +144,7 @@ class AddUser extends Component {
      
      <Grid container justify="flex-end">
        <Grid item style ={{padding:'1rem'}}>
-         <Link to='/' id ="linkStyle" style={{fontSize:'16px'}}  variant="body2">
+         <Link to='/login' id ="linkStyle" style={{fontSize:'16px'}}  variant="body2">
            Already have an account? Sign in
          </Link>
        </Grid>

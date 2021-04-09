@@ -71,11 +71,11 @@ class ViewUser extends Component {
                 <StyledTableCell align="center">{user.id}</StyledTableCell>
                 <StyledTableCell align="center">{user.username}</StyledTableCell>
                 <StyledTableCell align="center">{user.password}</StyledTableCell>
-                <StyledTableCell align= "center"><Link to={"/user/update/"+user.username}><Button variant="contained" color="primary">
+                {/* <StyledTableCell align= "center"><Link to={"/user/update/"+user.username}><Button variant="contained" color="primary">
                         Update</Button></Link></StyledTableCell>
                 <StyledTableCell align="center"><Button variant="contained" color="secondary" className={classes.button}
                     startIcon={<DeleteIcon />} onClick={this.deleteUser.bind(this,user.username)}>Delete</Button>
-                </StyledTableCell>         
+                </StyledTableCell>          */}
             </StyledTableRow>
                 // <tr key ={i}>
                 //     <td>{user.id}</td>
@@ -123,8 +123,8 @@ class ViewUser extends Component {
                             <StyledTableCell align="center">Id</StyledTableCell>
                             <StyledTableCell align="center">Username</StyledTableCell>
                             <StyledTableCell align="center">Password</StyledTableCell>
-                            <StyledTableCell align="center">Update</StyledTableCell>
-                            <StyledTableCell align="center">Delete</StyledTableCell>
+                            {/* <StyledTableCell align="center">Update</StyledTableCell>
+                            <StyledTableCell align="center">Delete</StyledTableCell> */}
                         </StyledTableRow>
                     </TableHead>
                     <TableBody>

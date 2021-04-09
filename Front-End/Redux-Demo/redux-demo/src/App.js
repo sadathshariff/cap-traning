@@ -278,8 +278,8 @@ function App() {
         </AccordionSummary>
         <AccordionDetails>
           <ul>
-          <li id = "listStyle"> <Link id ="linkStyle" className="nav-item" to="/" onClick={handleDrawerClose}>{<h4>Login</h4>}</Link></li>
-            <li id = "listStyle"> <Link id ="linkStyle" className="nav-item" to="/user/add" onClick={handleDrawerClose}>{<h4>SignUp / New User</h4>}</Link></li>
+            <li id = "listStyle"> <Link id ="linkStyle" className="nav-item" to="/login" onClick={handleDrawerClose}>{<h4>Login</h4>}</Link></li>
+            <li id = "listStyle"> <Link id ="linkStyle" className="nav-item" to="/" onClick={handleDrawerClose}>{<h4>SignUp / New User</h4>}</Link></li>
             <li id="listStyle"><Link id ="linkStyle" className="nav-item" to="/addbooking" onClick={handleDrawerClose}>{<h4>Add Booking</h4>}</Link></li>
             <li id="listStyle"><Link id ="linkStyle" className="nav-item" to="/feedback" onClick={handleDrawerClose}>{<h4>Add Feedback</h4>}</Link></li>
             
@@ -305,6 +305,10 @@ function App() {
         <Switch>
 
         <Route exact path="/">
+            <AddUser />
+          </Route>
+
+        <Route exact path="/login">
             <Login />
           </Route>
           <Route exact path="/viewbookings">
@@ -329,11 +333,6 @@ function App() {
             <ViewFeedback />
           </Route>
           
-          <Route exact path="/user/add">
-            <AddUser />
-          </Route>
-          
-
           <Route path="/busoperator/addbus">
             <AddBus />
           </Route>

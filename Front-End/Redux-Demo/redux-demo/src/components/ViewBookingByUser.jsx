@@ -6,6 +6,9 @@ import {
     Link
 } from "react-router-dom";
 
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+
   import { withStyles,makeStyles} from '@material-ui/core/styles';
   import DeleteIcon from '@material-ui/icons/Delete';
   import Button from '@material-ui/core/Button';
@@ -16,11 +19,11 @@ import {
   import TableHead from '@material-ui/core/TableHead';
   import TableRow from '@material-ui/core/TableRow';
   import Paper from '@material-ui/core/Paper';
-  
+
+  import user from './ViewUser';
 
 
-
-
+//-------------------------------//
   const StyledTableCell = withStyles((theme) => ({
     head: {
       backgroundColor: theme.palette.common.black,
@@ -35,6 +38,9 @@ import {
     root: {
       '&:nth-of-type(odd)': {
         backgroundColor: theme.palette.action.hover,
+        
+          flexGrow: 1,
+        
       },
     },
   }))(TableRow);
@@ -78,10 +84,15 @@ class ViewBookingByUser extends Component {
     
     render() {
 
+      
+      
+
 
         
         const classes = useStyles;
         //const classes1 = useStyles1;
+
+        
         
         
 
@@ -90,7 +101,7 @@ class ViewBookingByUser extends Component {
             
          
             return (
-                
+                   
                  
 
                 <StyledTableRow key={i}>
@@ -102,11 +113,11 @@ class ViewBookingByUser extends Component {
                     <StyledTableCell align="center">{booking.source}</StyledTableCell>
                     <StyledTableCell align="center">{booking.destination}</StyledTableCell>
                     <StyledTableCell align="center">{booking.date}</StyledTableCell>
+                    <StyledTableCell align="center"><Link to={"/update/" + booking.bookingId}><Button variant="contained" color="primary">
+                            Update</Button></Link></StyledTableCell> 
                     <StyledTableCell align="center"><Button variant="contained" color="secondary" className={classes.button}
-                        startIcon={<DeleteIcon />} onClick={this.deleteBooking.bind(this, booking.bookingId)}>Delete</Button> &nbsp;
+                        startIcon={<DeleteIcon />} onClick={this.deleteBooking.bind(this, booking.bookingId)}>Delete</Button>
                     </StyledTableCell>
-                    <StyledTableCell><Link to={"/update/" + booking.bookingId}><Button variant="contained" color="primary">
-                            Update</Button></Link></StyledTableCell>
                 </StyledTableRow>
                 
             )
@@ -116,9 +127,22 @@ class ViewBookingByUser extends Component {
 
         return (
           <div >
+             <Paper square style={{display:"flex",justifyContent:"center",marginTop:'-2rem'}}>
+                    <Tabs
+                      value={0}
+                      indicatorColor="primary"
+                      textColor="primary"
+                      
+                      >
+                      <Tab label="My Bookings" onClick={this.viewBookingByUser.bind(this)} />
+                      <Tab label="Add Booking" to="/addbooking"  component={Link}/>
+                      <Tab label="Add feedback" to="/feedback" component={Link} />
+                      <Tab label="Update Password" to={"/user/update/"+this.props.match.params.username} component={Link}/>
+                    </Tabs>
+                  </Paper>
             <br/>
             
-            <Button onClick={this.viewBookingByUser.bind(this)}>View</Button> 
+            
 
             <TableContainer component={Paper}>
             <Table className={classes.table} aria-label="sticky table">
@@ -131,8 +155,9 @@ class ViewBookingByUser extends Component {
                         <StyledTableCell align="center">Source</StyledTableCell>
                         <StyledTableCell align="center">Destination</StyledTableCell>
                         <StyledTableCell align="center">Date yyyy/mm/dd</StyledTableCell>
+                        <StyledTableCell align="center">Update</StyledTableCell> 
                         <StyledTableCell align="center">Delete</StyledTableCell>
-                        <StyledTableCell align="center">Update</StyledTableCell>
+                         
                     </StyledTableRow>
                 </TableHead>
                 <TableBody>

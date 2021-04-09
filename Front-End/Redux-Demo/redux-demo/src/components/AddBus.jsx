@@ -100,7 +100,7 @@ class AddBus extends Component {
                             <Grid item xs={12}>
                             <TextField
                                 variant="outlined"
-                                required
+                                required="true"
                                 fullWidth
                                 
                                 label="Enter BusNumber"
@@ -111,7 +111,7 @@ class AddBus extends Component {
                             <Grid item xs={12}>
                             <TextField
                                 variant="outlined"
-                                required
+                                required="true"
                                 fullWidth
                                 label="Enter total seats"
                                 inputRef={this.totalSeats}
@@ -120,7 +120,7 @@ class AddBus extends Component {
                             <Grid item xs={12}>
                             <TextField
                                 variant="outlined"
-                                required
+                                required="true"
                                 fullWidth
                                 label="Enter fare"
                                 inputRef={this.fare}

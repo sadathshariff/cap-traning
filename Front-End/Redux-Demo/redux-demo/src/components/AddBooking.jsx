@@ -134,7 +134,7 @@ class AddBooking extends Component {
                     <Grid item xs={12}>
                         <TextField
                         variant="outlined"
-                        required
+                        required="true"
                         fullWidth
                         
                         label="Booking Id"
@@ -145,7 +145,7 @@ class AddBooking extends Component {
                     <Grid item xs={12}>
                         <TextField
                         variant="outlined"
-                        required
+                        required="true"
                         fullWidth
                         
                         label="Enter Username"
@@ -156,7 +156,7 @@ class AddBooking extends Component {
                     <Grid item xs={12}>
                         <TextField
                         variant="outlined"
-                        required
+                        required="true"
                         fullWidth
                         
                         label="Enter Bus Number"
@@ -167,7 +167,7 @@ class AddBooking extends Component {
                     <Grid item xs={12}>
                         <TextField
                         variant="outlined"
-                        required
+                        required="true"
                         fullWidth
                         
                         label="Source"
@@ -178,7 +178,7 @@ class AddBooking extends Component {
                     <Grid item xs={12}>
                         <TextField
                         variant="outlined"
-                        required
+                        required="true"
                         fullWidth
                         
                         label="Destination"
@@ -189,7 +189,7 @@ class AddBooking extends Component {
                     <Grid item xs={12}>
                         <TextField
                         variant="outlined"
-                        required
+                        required="true"
                         fullWidth
                         type='number'
                         label="Number of Seats"
@@ -200,7 +200,7 @@ class AddBooking extends Component {
                     <Grid item xs={12}>
                         <TextField
                         variant="outlined"
-                        required
+                        required="true"
                         fullWidth
                         type='amount'
                         label="Amount "
@@ -211,7 +211,7 @@ class AddBooking extends Component {
                     <Grid item xs={12}>
                         <TextField
                         variant="outlined"
-                        required
+                        required="true"
                         fullWidth
                         type='date'
                         label="Enter Date "
@@ -223,7 +223,7 @@ class AddBooking extends Component {
                     <Grid item xs={12}>
                         <TextField
                         variant="outlined"
-                        required
+                        required="true"
                         fullWidth
                         type='time'
                         label="Start Time"
@@ -235,7 +235,7 @@ class AddBooking extends Component {
                     <Grid item xs={12}>
                         <TextField
                         variant="outlined"
-                        required
+                        required="true"
                         fullWidth
                         type='time'
                         label="End Time"

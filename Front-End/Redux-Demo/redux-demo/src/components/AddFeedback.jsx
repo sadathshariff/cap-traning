@@ -12,7 +12,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Container from '@material-ui/core/Container';
 
 function Copyright() {
@@ -98,7 +97,7 @@ class AddFeedback extends Component {
                     <Grid item xs={12}>
                         <TextField
                         variant="outlined" 
-                        required
+                        required="true"
                         fullWidth
                         
                         label="Username"
@@ -109,11 +108,11 @@ class AddFeedback extends Component {
                     <Grid item xs={12}>
                         <TextField
                         variant="outlined"
-                        required
+                        required="true"
                         fullWidth
                         type="number" 
                         min="1" 
-                        max="5"
+                        max="5"     
                         
                         label="Enter rating"
                         
@@ -123,7 +122,7 @@ class AddFeedback extends Component {
                     <Grid item xs={12}>
                         <TextField
                         variant="outlined"
-                        required
+                        required="true"
                         fullWidth
                         
                         label="Enter Comment"
@@ -134,7 +133,7 @@ class AddFeedback extends Component {
                     <Grid item xs={12}>
                         <TextField
                         variant="outlined"
-                        required
+                        required="true"
                         fullWidth
                         
                         label="Route Name"
