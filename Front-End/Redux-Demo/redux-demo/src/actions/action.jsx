@@ -427,7 +427,7 @@ export const checkBusops = (busOperatorUsername, password) => {
         headers: { 'Content-Type': 'application/json' }
     };
     return dispatch => {
-        fetch('http://localhost:8090/api/v1/busopertor/signin/' + busOperatorUsername +':'+ password, requestOptions)
+        fetch('http://localhost:8090/api/v1/busoperator/signin/' + busOperatorUsername +'/'+ password, requestOptions)
             .then(res => {
                 console.log(res)
                 if(res.status === 302){
