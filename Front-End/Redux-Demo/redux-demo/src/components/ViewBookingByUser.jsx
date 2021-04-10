@@ -132,12 +132,15 @@ class ViewBookingByUser extends Component {
                       value={0}
                       indicatorColor="primary"
                       textColor="primary"
+                      variant="scrollable"
+                      scrollButtons="auto"
                       
                       >
                       <Tab label="My Bookings" onClick={this.viewBookingByUser.bind(this)} />
                       <Tab label="Add Booking" to="/addbooking"  component={Link}/>
                       <Tab label="Add feedback" to="/feedback" component={Link} />
                       <Tab label="Update Password" to={"/user/update/"+this.props.match.params.username} component={Link}/>
+                      <Tab label="Logout" to="/" component={Link}/>
                     </Tabs>
                   </Paper>
             <br/>

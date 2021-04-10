@@ -76,7 +76,7 @@ export default function Login(){
       e.preventDefault();
       try{
         dispatch({type:"PROGRESS",paylaod:true})
-        dispatch(actions.checkUsername(username.current.value));
+        dispatch(actions.checkUsername(username.current.value,password.current.value));
       }
       catch(errorm){
         setError(errorm)

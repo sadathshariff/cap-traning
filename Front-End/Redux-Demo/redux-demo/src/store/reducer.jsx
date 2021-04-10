@@ -8,6 +8,8 @@ const initialState = {
     //login 
     errorMessage:'',
     user:undefined,
+    admin:undefined,
+    busOps:undefined,
     progress:false,
     login:false,
 }
@@ -85,6 +87,22 @@ const reducer = (state = initialState, {type,payload}) => {
 
          case "ERROR_USER":
                 return {...state, errorMessage: payload};  
+
+        //admin login
+        case "GET_ADMIN":
+            return {...state, admin:payload}
+        case "ERROR_ADMIN":
+            return {...state, errorMessage: payload};
+
+        //bus Op login stuffs 
+        case "PROGRESS":
+            return {...state, progress: payload};
+        case "LOGIN":
+            return {...state, loginSuccess: payload};
+        case "ERROR_BUSOP":
+            return {...state, errorMessage: payload};
+        case "GET_BUSOP":
+            return {...state,busOps: payload};    
                     
         default:
             return state    

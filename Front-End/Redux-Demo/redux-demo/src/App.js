@@ -20,6 +20,10 @@ import AddBus from './components/AddBus';
 import ViewBus from './components/ViewBus';
 import Login from './components/Login';
 import ViewBookingByUser from './components/ViewBookingByUser';
+import AdminScreen from './components/AdminScreen';
+import LoginAdmin from './components/LoginAdmin';
+import LoginBusOp from './components/LoginBusOp';
+import HomeScreen from './components/HomeScreen';
 
 import { makeStyles,useTheme,withStyles  } from '@material-ui/core/styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -246,7 +250,7 @@ function App() {
         </div>
         <div className={classes.root}>
           
-     
+{/*      
      <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -265,7 +269,7 @@ function App() {
           </ul>
          
         </AccordionDetails>
-      </Accordion>
+      </Accordion> */}
      
       
       <Accordion>
@@ -304,12 +308,26 @@ function App() {
             renders the first one that matches the current URL. */}
         <Switch>
 
-        <Route exact path="/">
-            <AddUser />
-          </Route>
-
         <Route exact path="/login">
             <Login />
+          </Route>
+          <Route exact path="/">
+            <HomeScreen />
+          </Route>
+          
+          <Route exact path="/adminscreen">
+            <AdminScreen />
+          </Route>
+
+          <Route exact path="/admin/login">
+            <LoginAdmin/>
+          </Route>
+          <Route exact path="/busoperator/login">
+            <LoginBusOp/>
+          </Route>
+
+        <Route exact path="/user/add">
+            <AddUser />
           </Route>
           <Route exact path="/viewbookings">
             <ViewBooking />

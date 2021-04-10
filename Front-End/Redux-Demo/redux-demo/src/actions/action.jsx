@@ -141,7 +141,7 @@ export const checkUsername = (username, password) => {
         headers: { 'Content-Type': 'application/json' }
     };
     return dispatch => {
-        fetch('http://localhost:8090/api/v1/users/getbyusername/' + username, requestOptions)
+        fetch('http://localhost:8090/api/v1/users/signin/' + username +'/' + password, requestOptions)
             .then(res => {
                 console.log(res)
                 if(res.status === 302){
@@ -378,5 +378,65 @@ export const fetchFeedback = () => {
                 console.log(data);
                 dispatch(findFeedback(data));
             }) 
+    }
+}
+
+
+//admin login
+export const getAdmin = (payload) => {
+    return {type: "GET_ADMIN", payload}
+}
+
+export const errorAdmin = (payload) => {
+    return {type: "ERROR_ADMIN", payload}
+}
+
+export const checkAdminUsername = (adminUsername, password) => {
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    };
+    return dispatch => {
+        fetch('http://localhost:8090/api/v1/admin/signin/' + adminUsername +'/'+ password, requestOptions)
+            .then(res => {
+                console.log(res)
+                if(res.status === 302){
+                    console.log("found");
+                    dispatch(getAdmin(adminUsername,password));
+                    
+                }
+                else{
+                    dispatch(errorUser("Incorrect credentials"));
+                }
+            })   
+    }
+}
+
+//busOperator login
+export const getbusops = (payload) => {
+    return {type: "GET_BUSOP", payload}
+}
+
+export const errorbusops = (payload) => {
+    return {type: "ERROR_BUSOP", payload}
+}
+
+export const checkBusops = (busOperatorUsername, password) => {
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    };
+    return dispatch => {
+        fetch('http://localhost:8090/api/v1/busopertor/signin/' + busOperatorUsername +':'+ password, requestOptions)
+            .then(res => {
+                console.log(res)
+                if(res.status === 302){
+                    console.log("found");
+                    dispatch(getbusops(busOperatorUsername,password));
+                }
+                else{
+                    dispatch(errorbusops("Incorrect credentials"));
+                }
+            })   
     }
 }
