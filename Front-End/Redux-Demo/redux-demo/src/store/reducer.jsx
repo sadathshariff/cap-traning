@@ -1,112 +1,122 @@
 const initialState = {
-    message:'',
-    bookings: [],
-    users:[],
-    feedbacks:[],
-    bus:[],
+  message: "",
+  bookings: [],
+  users: [],
+  feedbacks: [],
+  bus: [],
+  busOperators: [],
+  busOp: [],
 
-    //login 
-    errorMessage:'',
-    user:undefined,
-    admin:undefined,
-    busOps:undefined,
-    progress:false,
-    login:false,
-}
+  //login
+  errorMessage: "",
+  user: undefined,
+  admin: undefined,
+  busOps: undefined,
+  progress: false,
+  login: false,
+  revenue: 0,
+};
 
-const reducer = (state = initialState, {type,payload}) => {
+const reducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+    case "ADD_BOOKING":
+      return { message: payload.message, bookings: state.bookings };
 
-    
-    switch(type){
+    case "DELETE_BOOKING":
+      var filteredList = state.bookings.filter(
+        (booking) => booking.bookingId !== payload.bookingId
+      );
+      //console.log(filteredList)
+      return { bookings: filteredList };
 
-        case "ADD_BOOKING" :
-            return {message:payload.message, bookings:state.bookings};
+    case "FIND_BOOKINGS":
+      console.log(payload);
+      return { ...state, bookings: payload };
 
-        case "DELETE_BOOKING" :
-            var filteredList = state.bookings.filter((booking)=>
-            booking.bookingId !== payload.bookingId)
-        //console.log(filteredList)
-            return {bookings:filteredList}
+    case "UPDATE_BOOKING":
+      return { bookings: state.bookings };
 
-        case "FIND_BOOKINGS":
-            console.log(payload);
-            return {...state, bookings:payload};
+    case "FIND_BOOKING_USER":
+      //console.log(paylaod)
+      return { ...state, bookings: payload };
 
-        case "UPDATE_BOOKING" :
-            return {bookings:state.bookings};
+    case "ADD_USER":
+      return { message: payload.message, users: state.users };
 
-        case "FIND_BOOKING_USER":
-            //console.log(paylaod)
-            return {...state,bookings:payload}
+    case "DELETE_USER":
+      var filteredList1 = state.users.filter(
+        (user) => user.username !== payload.username
+      );
+      console.log(filteredList1);
+      return { users: filteredList1 };
 
+    case "FIND_USERS":
+      console.log(payload);
+      return { ...state, users: payload };
 
-        case "ADD_USER":
-            return {message:payload.message, users:state.users};
+    case "UPDATE_USER":
+      return { message: payload.message, users: state.users };
 
-        case "DELETE_USER":
-            var filteredList1 = state.users.filter((user) => 
-            user.username !== payload.username)
-            console.log(filteredList1)
-            return {users:filteredList1};
+    case "LOGIN_USER":
+      return { users: state.users };
 
-        case "FIND_USERS":
-            console.log(payload)
-            return {...state, users:payload};
+    case "ADD_BUS":
+      return { message: payload.message, bus: state.bus };
 
-        case  "UPDATE_USER":
-        return {message:payload.message,users:state.users}   
+    case "FIND_BUS":
+      console.log(payload);
+      return { ...state, bus: payload };
 
-        case "LOGIN_USER":
-            return {users:state.users}
+    case "DELETE_BUS":
+      var filteredList2 = state.bus.filter(
+        (bus) => bus.busNumber !== payload.busNumber
+      );
+      return { bus: filteredList2 };
 
+    case "FIND_BUSOPERATOR":
+      console.log(payload);
+      return { ...state, busOperators: payload };
 
-        
-        case "ADD_BUS":
-        return {message:payload.message,bus:state.bus}
+    case "ADD_FEEDBACK":
+      return { message: payload.message, feedbacks: state.feedbacks };
 
-        case "FIND_BUS":
-            console.log(payload)
-            return {...state,bus: payload}
+    case "FIND_FEEDBACK":
+      console.log(payload);
+      return { ...state, feedbacks: payload };
 
-        case "DELETE_BUS":
-            var filteredList2 = state.bus.filter((bus)=>
-                bus.busNumber !== payload.busNumber)        
-            return { bus: filteredList2 } 
+    //user login
 
+    case "GET_USER":
+      return { ...state, user: payload };
 
+    case "ERROR_USER":
+      return { ...state, errorMessage: payload };
 
-        case "ADD_FEEDBACK":
-            return {message: payload.message, feedbacks: state.feedbacks}
-        
-        case "FIND_FEEDBACK":
-            console.log(payload)
-            return {...state,feedbacks:payload}
+    //admin login
+    case "GET_ADMIN":
+      return { ...state, admin: payload };
+    case "ERROR_ADMIN":
+      return { ...state, errorMessage: payload };
 
-        case "GET_USER":
-                return {...state,user: payload};
+    //bus Op login stuffs
+    case "PROGRESS":
+      return { ...state, progress: payload };
+    case "LOGIN":
+      return { ...state, loginSuccess: payload };
+    case "ERROR_BUSOP":
+      return { ...state, errorMessage: payload };
+    case "GET_BUSOP":
+      return { ...state, busOps: payload };
 
-         case "ERROR_USER":
-                return {...state, errorMessage: payload};  
+    //bus Operator
+    case "ADD_BUSOP":
+      return { ...state, busOp: state.busOp, message: payload.message };
+    case "GET_REV":
+      console.log(payload);
+      return { ...state, revenue: payload };
 
-        //admin login
-        case "GET_ADMIN":
-            return {...state, admin:payload}
-        case "ERROR_ADMIN":
-            return {...state, errorMessage: payload};
-
-        //bus Op login stuffs 
-        case "PROGRESS":
-            return {...state, progress: payload};
-        case "LOGIN":
-            return {...state, loginSuccess: payload};
-        case "ERROR_BUSOP":
-            return {...state, errorMessage: payload};
-        case "GET_BUSOP":
-            return {...state,busOps: payload};    
-                    
-        default:
-            return state    
-    }
-
-}
+    default:
+      return state;
+  }
+};
 export default reducer;

@@ -7,8 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import DeleteIcon from '@material-ui/icons/Delete';
-import Button from '@material-ui/core/Button';
+
 
 const useStyles = makeStyles({
     table: {
@@ -131,27 +130,6 @@ export default class DetailViewBooking extends Component {
               </div>
                 
             )
-                {/* <table class="table table-striped table-bordered ">
-                <thead>
-                    <tr>
-                        <th scope="col">Number of Seats</th>
-                        <th scope="col">Amount Paid</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Start Time</th>
-                        <th scope="col">End Time</th>
-                    </tr>
-                    </thead>
-                <tbody>
-                    <tr>
-                        <td>{this.state.booking.numberOfSeats}</td>
-                        <td>{this.state.booking.amountPaid}</td>
-                        <td>{this.state.bookings.date}</td>
-                        <td>{this.state.bookings.journeyStartTime}</td>
-                        <td>{this.state.bookings.journeyEndTime}</td>
-                    </tr>
-                </tbody>
-            </table> */}
-        
     }
 
 }

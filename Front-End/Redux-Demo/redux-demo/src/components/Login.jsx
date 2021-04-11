@@ -1,5 +1,5 @@
 import React,{useRef, useState} from 'react';
-import { connect } from 'react-redux';
+
 
 import {  useHistory } from 'react-router-dom';
 import * as actions from '../actions/action';
@@ -8,10 +8,9 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import {Typography} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Avatar from '@material-ui/core/Avatar';
+
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -68,7 +67,7 @@ export default function Login(){
     const user = useSelector(state=> state.user);
     const username = useRef();
     const password = useRef();
-    const [error,setError] = useState('');
+    const [setError] = useState('');
 
     const history = useHistory();
 

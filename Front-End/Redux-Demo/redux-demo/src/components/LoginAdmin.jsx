@@ -9,7 +9,7 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import {Typography} from '@material-ui/core';
-import {Link} from "react-router-dom";
+
 
 
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -68,7 +68,7 @@ export default function Login() {
       const adminUsername = useRef();
       const password = useRef();
       //const errorMessage = useSelector(state=>state.errorMessage);
-      const [error, setError] = useState('');
+      const [ setError] = useState('');
       const history = useHistory();
     
       function handleSubmit(e) {
@@ -97,8 +97,8 @@ export default function Login() {
           <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Typography component="h1" variant="h5" style={{display:"flex",justifyContent:"space-between",textAlign:"center",textShadow:"2px 2px #E3EEFF"}}>
-        <Avatar className={classes.avatar} style={{backgroundImage:" linear-gradient(blue, red)"}}>
+        <Typography component="h1" variant="h5" style={{display:"flex",justifyContent:"space-between",color:'blue',fontFamily:'cursive',fontSize:'25px'}}>
+        <Avatar className={classes.avatar} style={{backgroundColor:"blue"}}>
           <LockTwoToneIcon />
         </Avatar> 
             Welcome Admin

@@ -41,11 +41,11 @@ export default function Screen1() {
       </div>
 
       <br/>
-      <Typography variant='h5' style={{display:"flex",justifyContent:"center"}}>
+      <Typography variant='h5' style={{display:"flex",justifyContent:"center",color:'blue',fontFamily:'cursive'}}>
         <b>USER</b>
       </Typography>
       
-      <Link to='/user/add'  style={{display:'flex',justifyContent:'center',marginTop:'2.7rem'}}><Button variant="contained" color="primary">Click</Button></Link>
+      <Link to='/user/add'  style={{display:'flex',justifyContent:'center',marginTop:'2.7rem'}}><Button variant="contained" color="primary">User-In</Button></Link>
 
       </Paper>
       <Paper elevation={3} 
@@ -55,18 +55,18 @@ export default function Screen1() {
         backgroundImage:" linear-gradient(#ECF4FF, white)"
         }}>
 
-      <div style={{display:"flex",justifyContent:"center",backgroundColor:"lightBlue",}}>
+      <div style={{display:"flex",justifyContent:"center",backgroundColor:"lightBlue"}}>
       <PersonIcon fontSize="large" />
       </div>
 
         <br/>
-      <Typography variant='h5'style={{display:"flex",justifyContent:"center",}}>
+      <Typography variant='h5'style={{display:"flex",justifyContent:"center",color:'blue',fontFamily:'cursive'}}>
         <b>ADMIN</b>  
       </Typography>
       <div style={{display:"flex",justifyContent:"center",margin:'10px'}}>
       <LockOutlinedIcon />
       </div>
-      <Link to='/admin/login' style={{display:'flex',justifyContent:'center'}}><Button variant="contained" color="primary" >Click</Button></Link>
+      <Link to='/admin/login' style={{display:'flex',justifyContent:'center'}}><Button variant="contained" color="primary" >Admin-In</Button></Link>
       
       </Paper>
       <Paper elevation={3} 
@@ -81,14 +81,14 @@ export default function Screen1() {
       </div>
       
       <br/>
-      <Typography variant='h5' style={{display:"flex",justifyContent:"center"}}>
+      <Typography variant='h5' style={{display:"flex",justifyContent:"center",color:'blue',fontFamily:'cursive'}}>
         <b>BUS OPERATOR</b>
       </Typography>
       <div style={{display:"flex",justifyContent:"center",margin:'10px'}}>
       <LockOutlinedIcon />
       </div>
      
-      <Link to='/busoperator/login' style={{display:'flex',justifyContent:'center'}}><Button variant="contained" color="primary" >Click</Button></Link>
+      <Link to='/busoperator/login' style={{display:'flex',justifyContent:'center'}}><Button variant="contained" color="primary" >BusOp-In</Button></Link>
 
       </Paper>
     </div>

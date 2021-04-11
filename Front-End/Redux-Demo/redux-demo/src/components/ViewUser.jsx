@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import {
-    Link
-  } from "react-router-dom";
+
 import { connect } from 'react-redux';
 import * as actions from '../actions/action'
 
@@ -13,8 +11,6 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import DeleteIcon from '@material-ui/icons/Delete';
-import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles({
     table: {
@@ -71,49 +67,14 @@ class ViewUser extends Component {
                 <StyledTableCell align="center">{user.id}</StyledTableCell>
                 <StyledTableCell align="center">{user.username}</StyledTableCell>
                 <StyledTableCell align="center">{user.password}</StyledTableCell>
-                {/* <StyledTableCell align= "center"><Link to={"/user/update/"+user.username}><Button variant="contained" color="primary">
-                        Update</Button></Link></StyledTableCell>
-                <StyledTableCell align="center"><Button variant="contained" color="secondary" className={classes.button}
-                    startIcon={<DeleteIcon />} onClick={this.deleteUser.bind(this,user.username)}>Delete</Button>
-                </StyledTableCell>          */}
+                
             </StyledTableRow>
-                // <tr key ={i}>
-                //     <td>{user.id}</td>
-                //     <td>{user.username}</td>
-                //     <td>{user.password}</td>
-                //     <td><button type="button" className="btn btn-danger" onClick={this.deleteUser.bind(this,user.username)}> Delete </button></td>
-                //     <td><Link to={'/user/update/'+user.username}><button type="button" className="btn btn-info">
-                //             Update</button></Link></td>
-                // </tr>
+                
             )
         })
 
 
         return (
-
-
-            // <div className="row">
-
-            //     <div className = "alert alert-success" role ="alert">
-            //         {this.props.message}
-            //     </div>
-
-            //     <table className="table table-stripped table-bordered">
-            //         <thead>
-            //             <tr>
-            //                 <th scope="col">id</th>
-            //                 <th scope ="col">UserName</th>
-            //                 <th scope = "col">Password</th>
-            //                 <th scope = "col">Delete</th>
-            //                 <th scope = "col">Update-Password</th>
-            //             </tr>
-            //         </thead>
-            //         <tbody>
-            //             {userList}
-            //         </tbody>
-            //     </table>
-                
-           // </div>
 
            <div>
                <TableContainer component={Paper}>

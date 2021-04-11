@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import  {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions/action'
 import Button from '@material-ui/core/Button';
@@ -16,18 +15,6 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 
 
-function Copyright() {
-    return (
-      <Typography variant="body2" color="textSecondary" align="center">
-        {'Copyright © '}
-        {/* <Link color="inherit" href="https://material-ui.com/"> */}
-          Your Website
-        {/* </Link>*/}{' '}
-        {new Date().getFullYear()}
-        {'.'}
-      </Typography>
-    );
-  }
 
 
 const useStyles = makeStyles((theme) => ({
