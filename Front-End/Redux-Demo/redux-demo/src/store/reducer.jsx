@@ -1,4 +1,8 @@
 const initialState = {
+  updateMessage: "",
+  addMessage: "",
+  feedbackMessage: "",
+
   message: "",
   bookings: [],
   users: [],
@@ -20,7 +24,7 @@ const initialState = {
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case "ADD_BOOKING":
-      return { message: payload.message, bookings: state.bookings };
+      return { addMessage: payload.message, bookings: state.bookings };
 
     case "DELETE_BOOKING":
       var filteredList = state.bookings.filter(
@@ -34,7 +38,7 @@ const reducer = (state = initialState, { type, payload }) => {
       return { ...state, bookings: payload };
 
     case "UPDATE_BOOKING":
-      return { bookings: state.bookings };
+      return { updateMessage: payload.message, bookings: state.bookings };
 
     case "FIND_BOOKING_USER":
       //console.log(paylaod)
@@ -78,7 +82,8 @@ const reducer = (state = initialState, { type, payload }) => {
       return { ...state, busOperators: payload };
 
     case "ADD_FEEDBACK":
-      return { message: payload.message, feedbacks: state.feedbacks };
+      console.log(payload);
+      return { feedbackMessage: payload.message, feedbacks: state.feedbacks };
 
     case "FIND_FEEDBACK":
       console.log(payload);

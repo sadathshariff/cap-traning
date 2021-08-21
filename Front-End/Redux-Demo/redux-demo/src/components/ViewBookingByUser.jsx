@@ -63,7 +63,6 @@ class ViewBookingByUser extends Component {
     console.log("Initialization...");
     this.props.onViewBookingByUser(this.props.match.params.username);
   }
-
   viewBookingByUser(event) {
     console.log("username...", this.props.match.params.username);
     event.preventDefault();

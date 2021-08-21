@@ -74,7 +74,7 @@ export const deleteBooking = (bookingId) => {
       .then((data) => {
         console.log(data);
         dispatch(removeBooking({ bookings: data, message }));
-        dispatch(fetchBookings());
+        // dispatch(fetchBookings());
       });
   };
 };
@@ -93,14 +93,16 @@ export const updateBookings = (id, date) => {
     body: JSON.stringify({ bookingId: id, date: date }),
   };
   return (dispatch) => {
-    fetch(baseUrl + "/" + id + ":" + date, requestOptions).then((response) => {
-      console.log(response.status);
-      if (response.status === 200) {
-        // this.setState({date: this.date.current.value})
-        // this.setState({message: 'Booking updated sucessfully!'})
-        dispatch(updateBooking());
+    fetch(baseUrl + "/update/" + id + ":" + date, requestOptions).then(
+      (response) => {
+        console.log(response.status);
+        if (response.status === 200) {
+          // this.setState({date: this.date.current.value})
+          // this.setState({message: 'Booking updated sucessfully!'})
+          dispatch(updateBooking());
+        }
       }
-    });
+    );
   };
 };
 
@@ -340,10 +342,10 @@ export const deleteBus = (busNumber) => {
 
 //Feedback Module
 
-export const saveFeedback = (paylaod) => {
+export const saveFeedback = (payload) => {
   return {
     type: "ADD_FEEDBACK",
-    paylaod: { message: "Successfully added Feedback" },
+    payload: { message: "Successfully added Feedback" },
   };
 };
 
